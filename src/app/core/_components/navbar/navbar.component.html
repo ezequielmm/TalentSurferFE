@@ -1,0 +1,22 @@
+<mat-toolbar>
+    Talent Surfer
+    
+    <h1 class="navbar-title">
+        <a href="opportunity">
+            Opportunity Management
+        </a>
+    </h1>
+    
+    <button mat-button [matMenuTriggerFor]="menu">
+        Data Management
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>Opportunity Location</button>
+        <button mat-menu-item>Opportunity Certainty</button>
+        <button mat-menu-item>Seniority</button>
+        <button mat-menu-item>Business Unit</button>
+        <button mat-menu-item>Opportunity Status</button>
+        <button mat-menu-item>Rols</button>
+        <button mat-menu-item>Positions Status</button>
+    </mat-menu>
+</mat-toolbar>
