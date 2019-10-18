@@ -1,50 +1,52 @@
-<mat-toolbar class="navbar-container">
-  <a routerLink="/home" class="product-brand">
-    Talent
-    <span class="special">Surfer</span>
-  </a>
-
-  <h1 class="navbar-title">
-    <a routerLink="/opportunity">
-      Opportunity Management
+<div class="app-navbar">
+  <mat-toolbar class="navbar-container">
+    <a routerLink="/home" class="product-brand">
+      Talent
+      <span class="special">Surfer</span>
     </a>
-  </h1>
 
-  <button mat-button [matMenuTriggerFor]="menu" class="navbar-item">
-    Data Management
-    <mat-icon>keyboard_arrow_down</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu" class="navbar-item-dropdown">
-    <div class="navbar-item-dropdown-divisor"></div>
-    <button mat-menu-item routerLink="opportunity-location" class="navbar-item-dropdown-item">
-      Opportunity Location
-    </button>
-    <button mat-menu-item routerLink="opportunity-certainty" class="navbar-item-dropdown-item">
-      Opportunity Certainty
-    </button>
-    <button mat-menu-item routerLink="seniority" class="navbar-item-dropdown-item">
-      Seniority
-    </button>
-    <button mat-menu-item routerLink="business-unit" class="navbar-item-dropdown-item">
-      Business Unit
-    </button>
-    <button mat-menu-item routerLink="opportunity-status" class="navbar-item-dropdown-item">
-      Opportunity Status
-    </button>
-    <button mat-menu-item routerLink="roles" class="navbar-item-dropdown-item">
-      Roles
-    </button>
-    <button mat-menu-item routerLink="position-status" class="navbar-item-dropdown-item">
-      Positions Status
-    </button>
-  </mat-menu>
+    <h1 class="navbar-title">
+      <a routerLink="/opportunity">
+        Opportunity Management
+      </a>
+    </h1>
 
-  <div class="navbar-control">
-    <div class="navbar-control-item">
-      <button mat-icon-button>
-        <mat-icon>account_circle</mat-icon>
+    <button mat-button [matMenuTriggerFor]="menu" class="navbar-item">
+      Data Management
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" class="navbar-item-dropdown">
+      <div class="navbar-item-dropdown-divisor"></div>
+      <button mat-menu-item routerLink="opportunity-location" class="navbar-item-dropdown-item">
+        Opportunity Location
       </button>
-    </div>    
-  </div>
+      <button mat-menu-item routerLink="opportunity-certainty" class="navbar-item-dropdown-item">
+        Opportunity Certainty
+      </button>
+      <button mat-menu-item routerLink="seniority" class="navbar-item-dropdown-item">
+        Seniority
+      </button>
+      <button mat-menu-item routerLink="business-unit" class="navbar-item-dropdown-item">
+        Business Unit
+      </button>
+      <button mat-menu-item routerLink="opportunity-status" class="navbar-item-dropdown-item">
+        Opportunity Status
+      </button>
+      <button mat-menu-item routerLink="roles" class="navbar-item-dropdown-item">
+        Roles
+      </button>
+      <button mat-menu-item routerLink="position-status" class="navbar-item-dropdown-item">
+        Positions Status
+      </button>
+    </mat-menu>
 
-</mat-toolbar>
+    <div class="navbar-control">
+      <div class="navbar-control-item">
+        <button mat-icon-button>
+          <mat-icon>account_circle</mat-icon>
+        </button>
+      </div>    
+    </div>
+
+  </mat-toolbar>
+</div>

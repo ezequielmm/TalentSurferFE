@@ -1,92 +1,94 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import 'variables';
 
-.navbar-container {
-    background: #333333;
-    font-family: 'Roboto';
-    font-weight: 400;
-    font-size: 16px;
-    color: #FFFFFF;
-    text-align: left;
-    line-height: 24px;
-    width: 100%;
-}
+.app-navbar {
+    .navbar-container {
+        background: $olive-black;
+        font-family: $font-family-roboto;
+        font-weight: 400;
+        font-size: 16px;
+        color: $white;
+        text-align: left;
+        line-height: 24px;
+        width: 100%;
+    }
 
-.navbar-container .product-brand {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    font-size: 21px;
-    color: #FFFFFF;
-    letter-spacing: 0.3px;
-    text-decoration: none;
-}
+    .navbar-container .product-brand {
+        font-family: $font-family-montserrat;
+        font-weight: bold;
+        font-size: 21px;
+        color: $white;
+        letter-spacing: 0.3px;
+        text-decoration: none;
+    }
 
-.navbar-container .product-brand .special {
-    color:#CCD324;
-}
+    .navbar-container .product-brand .special {
+        color:$fuego;
+    }
 
-.navbar-container .navbar-title{
-    margin-left: 32px;
-    margin-right: 32px;
-}
+    .navbar-container .navbar-title{
+        margin-left: 32px;
+        margin-right: 32px;
+    }
 
-.navbar-container .navbar-item {
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 16px;
-    color: #FFFFFF;
-    text-align: left;
-    line-height: 24px;
-    margin-right: 16px;
-    padding-top: 3px;
-}
+    .navbar-container .navbar-item {
+        font-family: $font-family-roboto;
+        font-weight: 500;
+        font-size: 16px;
+        color: $white;
+        text-align: left;
+        line-height: 24px;
+        margin-right: 16px;
+        padding-top: 3px;
+    }
 
-.navbar-container .navbar-title a {
-    text-decoration: none;
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 16px;
-    color: #FFFFFF;
-    text-align: left;
-    line-height: 24px;
-}
+    .navbar-container .navbar-title a {
+        text-decoration: none;
+        font-family: $font-family-roboto;
+        font-weight: 500;
+        font-size: 16px;
+        color: $white;
+        text-align: left;
+        line-height: 24px;
+    }
 
-.navbar-item-dropdown.mat-menu-panel {
-    background-color: #333333;
-    color: #FFFFFF;
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    
-}
+    .navbar-item-dropdown.mat-menu-panel {
+        background-color: $olive-black;
+        color: $white;
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        
+    }
 
-.navbar-item-dropdown .navbar-item-dropdown-divisor {
-    background-color: #CCD324; 
-    width: 100%; 
-    height: 3px;
-    margin-left: -16px;
-    margin-top: -16px;
-    margin-bottom: 16px;
-}
+    .navbar-item-dropdown .navbar-item-dropdown-divisor {
+        background-color: $fuego; 
+        width: 100%; 
+        height: 3px;
+        margin-left: -16px;
+        margin-top: -16px;
+        margin-bottom: 16px;
+    }
 
-.navbar-item-dropdown .navbar-item-dropdown-item {
-    color: #FFFFFF;
-    font-family: 'Roboto';
-    font-weight: 400;
-    font-size: 14px;
-    color: #FFFFFF;
-    text-align: left;
-    line-height: 24px;
-    height: 32px;
-}
+    .navbar-item-dropdown .navbar-item-dropdown-item {
+        color: $white;
+        font-family: $font-family-roboto;
+        font-weight: 400;
+        font-size: 14px;
+        color: $white;
+        text-align: left;
+        line-height: 24px;
+        height: 32px;
+    }
 
-.navbar-container .navbar-control {
-    position: absolute;
-    right: 0px;
-    padding-right: 16px;
-}
+    .navbar-container .navbar-control {
+        position: absolute;
+        right: 0px;
+        padding-right: 16px;
+    }
 
-.navbar-container .navbar-control .navbar-control-item {
-    float: right;
+    .navbar-container .navbar-control .navbar-control-item {
+        float: right;
+    }
+
 }
