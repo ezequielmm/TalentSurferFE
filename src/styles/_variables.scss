@@ -1,11 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
 // FONT STYLE --------------------------------------
 $font-family-montserrat: 'Montserrat', sans-serif;
-$font-family-roboto: 'Roboto' sans-serif;
+$font-family-roboto: 'Roboto', sans-serif;
 
 // COLORS  --------------------------------------
 $white: #FFFFFF;
 $fuego: #CCD324;
 $olive-black: #333333;
+$white-smoke: #F5F5F5;
+$royal-blue: #007CAD;
+$pure-black: #000000;
+$very-light-gray: #E0E0E0;
+$light-gray: #C8C8C8;
+$azure: #F1F4F4;
+$bastille: #2E2E38;
+$charcoal: #4A4A4A;
+$ghost: rgba(196,196,205,.35);
+$disabled-color: rgba(0,0,0,.38);
+
+$btn-gradient: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,124,173,1) 0%, rgba(0,166,232,1) 100%);
+$btn-group-borderline: 1px solid rgba(196, 196, 205,.35)

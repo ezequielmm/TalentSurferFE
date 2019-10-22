@@ -1,0 +1,68 @@
+<div class="app-certainty">
+    <div class="container opp-certainty">
+        <section class="control-items">
+            <h2 class="title">Opportunity Certainty</h2>
+            <div>
+                <button (click)="openDialog()" mat-button class="control-item-button"> + Add New</button>
+            </div>
+        </section>
+
+        <table class="certainty-table" mat-table [dataSource]="certainties">
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell class="header-title" *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let certainty"> {{certainty.id}} </td>
+            </ng-container>
+
+            <!-- Order Column -->
+            <ng-container matColumnDef="order">
+                <th mat-header-cell *matHeaderCellDef> Sort Order </th>
+                <td mat-cell *matCellDef="let certainty"> {{certainty.sortOrder}} </td>
+            </ng-container>
+
+            <!-- Description Column -->
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let certainty"> {{certainty.description}} </td>
+            </ng-container>
+
+            <!-- value flag Column -->
+            <ng-container matColumnDef="value">
+                <th mat-header-cell *matHeaderCellDef> Value </th>
+                <td mat-cell *matCellDef="let certainty"> {{(certainty.value) / 100 | percent}} </td>
+            </ng-container>
+
+            <!-- archiving flag Column -->
+            <ng-container matColumnDef="archiving_flag">
+                <th mat-header-cell *matHeaderCellDef> Archiving Flag </th>
+                <td mat-cell *matCellDef="let certainty">
+                    <mat-checkbox [checked]="certainty.archivingFlag" disabled></mat-checkbox>
+                </td>
+
+            </ng-container>
+
+            <!-- comments Column -->
+            <ng-container matColumnDef="comments">
+                <th mat-header-cell *matHeaderCellDef> Comments </th>
+                <td mat-cell *matCellDef="let certainty"> {{certainty.comments}} </td>
+            </ng-container>
+
+            <!-- action Column -->
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let certainty" class="text-center">
+                    <button (click)="openEditCertaintyModal(certainty)" class="edit-button-custom">
+                        <img src="assets/img/edit-24px.svg">
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <div class="progress-loader" [hidden]="!loading">
+            <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+        </div>
+    </div>
+</div>

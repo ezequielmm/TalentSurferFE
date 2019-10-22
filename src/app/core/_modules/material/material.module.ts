@@ -1,8 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { MatInputModule, MatButtonModule, MatToolbarModule, MatMenuModule } from '@angular/material';
-import {MatIconModule} from '@angular/material/icon';
+import {
+  MatInputModule,
+  MatButtonModule,
+  MatToolbarModule,
+  MatMenuModule,
+  MatOptionModule,
+  MatSelectModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatProgressSpinnerModule,
+  MatTableModule
+} from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [],
@@ -13,6 +24,13 @@ import {MatIconModule} from '@angular/material/icon';
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
+    MatTableModule
   ],
   exports: [
     MatInputModule,
@@ -20,6 +38,14 @@ import {MatIconModule} from '@angular/material/icon';
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
+    MatTableModule
   ]
 })
+
 export class MaterialModule { }

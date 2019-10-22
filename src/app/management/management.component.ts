@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 //import { MatToolbarComponent } from 'src/app/core/_modules/material/mat-toolbar/mat-toolbar.component';
 
 @Component({
-  selector: 'app-opportunity',
-  templateUrl: './opportunity.component.html',
-  styleUrls: ['./opportunity.component.scss']
+  selector: 'app-management',
+  templateUrl: './management.component.html',
+  styleUrls: ['./management.component.scss']
 })
-export class OpportunityComponent implements OnInit {
+export class ManagementComponent implements OnInit {
 
   constructor() { }
 
