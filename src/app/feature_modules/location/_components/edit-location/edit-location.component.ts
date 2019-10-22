@@ -1,42 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { CertaintyService } from '../../certainty.service';
+import { LocationService } from '../../location.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-edit-certainty',
-  templateUrl: './edit-certainty.component.html',
-  styleUrls: ['./edit-certainty.component.scss']
+  selector: 'app-edit-location',
+  templateUrl: './edit-location.component.html',
+  styleUrls: ['./edit-location.component.scss']
 })
 
-export class EditCertaintyComponent implements OnInit {
-  editCertaintyForm: FormGroup;
+export class EditLocationComponent implements OnInit {
+  editLocationForm: FormGroup;
 
   constructor(
-    private dialogRef: MatDialogRef<EditCertaintyComponent>,
-    private certaintyService: CertaintyService,
+    private dialogRef: MatDialogRef<EditLocationComponent>,
+    private locationService: LocationService,
     private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
-    this.editCertaintyForm = this.formBuilder.group({
+    this.editLocationForm = this.formBuilder.group({
       id: [{ value: 0, disabled: true }, Validators.required],
       sortOrder: [0, Validators.required],
       description: ['', Validators.required],
-      value: [0, Validators.required],
       archivingFlag: [false, Validators.required],
       comments: ['']
     });
     console.log(this.dialogRef._containerInstance._config.data);
-    this.editCertaintyForm.patchValue(this.dialogRef._containerInstance._config.data);
+    this.editLocationForm.patchValue(this.dialogRef._containerInstance._config.data);
   }
 
   closeDialog() {
     this.dialogRef.close();
   }
 
-  editCertainty() {
-    this.certaintyService.updateCertainty(this.editCertaintyForm.getRawValue()).subscribe(
+  editLocation() {
+    this.locationService.updateLocation(this.editLocationForm.getRawValue()).subscribe(
       res => {
         this.closeDialog();
       },

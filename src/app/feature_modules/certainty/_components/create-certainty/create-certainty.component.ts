@@ -24,7 +24,7 @@ export class CreateCertaintyComponent implements OnInit {
       description: ['', Validators.required],
       value: [0, Validators.required],
       archivingFlag: [false, Validators.required],
-      comments: ['', Validators.required]
+      comments: ['']
     });
   }
 

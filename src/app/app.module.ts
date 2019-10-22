@@ -21,6 +21,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './_service/in-memory-data.service';
 import { CertaintyModule } from './feature_modules/certainty/certainty.module';
+import { LocationModule } from './feature_modules/location/location.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { CertaintyModule } from './feature_modules/certainty/certainty.module';
     BrowserModule,
     AppRoutingModule,
     CertaintyModule,
+    LocationModule,
     BrowserAnimationsModule,
     MaterialModule,
     MatDatepickerModule,

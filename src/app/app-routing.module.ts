@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { OpportunityLocationComponent } from './opportunity-location/opportunity-location.component';
 import { PositionStatusComponent } from './position-status/position-status.component';
 import { RolesComponent } from './roles/roles.component';
 import { SeniorityComponent } from './seniority/seniority.component';
@@ -17,7 +16,10 @@ const routes: Routes = [
     loadChildren: () => import('./feature_modules/certainty/certainty.module').then(
       module => module.CertaintyModule
   )},
-  { path: 'opportunity-location', component: OpportunityLocationComponent },
+  { path: 'location',
+    loadChildren: () => import('./feature_modules/location/location.module').then(
+      module => module.LocationModule
+  )},
   { path: 'opportunity-status', component: OpportunityStatusComponent },
   { path: 'position-status', component: PositionStatusComponent },
   { path: 'roles', component: RolesComponent },

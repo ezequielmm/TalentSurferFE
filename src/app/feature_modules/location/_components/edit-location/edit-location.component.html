@@ -1,10 +1,10 @@
-<div class="app-edit-certainty modal">
+<div class="app-edit-location modal">
     <div class="modal-title">
-        <h2 class="primary">Edit Certainty</h2>
+        <h2 class="primary">Edit Location</h2>
     </div>
 
     <div class="modal-container">
-        <form [formGroup]='editCertaintyForm' (ngSubmit)="editCertainty()">
+        <form [formGroup]='editLocationForm' (ngSubmit)="editLocation()">
             <section class="modal-content">
                 <mat-form-field>
                     <mat-label>Id</mat-label>
@@ -20,11 +20,6 @@
                     <input matInput type="text" formControlName="description" placeholder="Description">
                 </mat-form-field>
 
-                <mat-form-field>
-                    <mat-label>Value</mat-label>
-                    <input matInput type="number" min="0" max="100" formControlName="value" placeholder="Value">
-                </mat-form-field>
-
                 <mat-label class="flag-checkbox">
                     <mat-checkbox formControlName="archivingFlag" [checked]="archivingFlag"></mat-checkbox> Archiving Flag
                 </mat-label>
@@ -36,7 +31,7 @@
 
             <section class="btn-group-modal">
                 <button mat-button type="button" class="cancel-btn" (click)="closeDialog()">Cancel</button>
-                <button mat-raised-button type="submit" color="primary" [disabled]="!editCertaintyForm.valid" class="action-btn">Edit</button>
+                <button mat-raised-button type="submit" color="primary" [disabled]="!editLocationForm.valid" class="action-btn">Edit</button>
             </section>
         </form>
     </div>

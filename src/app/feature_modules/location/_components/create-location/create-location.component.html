@@ -1,10 +1,10 @@
-<div class="app-create-certainty modal">
+<div class="app-create-location modal">
     <div class="modal-title">
-        <h2 class="primary">Add Certainty</h2>
+        <h2 class="primary">Add Location</h2>
     </div>
 
     <div class="modal-container">
-        <form [formGroup]="createCertaintyForm" (ngSubmit)="createCertainty()">
+        <form [formGroup]="createLocationForm" (ngSubmit)="createLocation()">
             <section class="modal-content">
                 <mat-form-field>
                     <mat-label>Sort Order</mat-label>
@@ -13,11 +13,6 @@
 
                 <mat-form-field>
                     <input matInput type="text" formControlName="description" placeholder="Description">
-                </mat-form-field>
-
-                <mat-form-field>
-                    <mat-label>Value</mat-label>
-                    <input matInput type="number" min="0" max="100" formControlName="value" placeholder="Value">
                 </mat-form-field>
 
                 <mat-label class="flag-checkbox">
@@ -31,7 +26,7 @@
 
             <section class="btn-group-modal">
                 <button mat-button type="button" class="cancel-btn" (click)="closeDialog()">Cancel</button>
-                <button mat-raised-button type="submit" color="primary" [disabled]="!createCertaintyForm.valid" class="action-btn">Add</button>
+                <button mat-raised-button type="submit" color="primary" [disabled]="!createLocationForm.valid" class="action-btn">Add</button>
             </section>
         </form>
     </div>
