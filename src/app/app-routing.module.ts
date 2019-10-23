@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { RolesComponent } from './roles/roles.component';
-import { ManagementComponent } from './management/management.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -49,13 +47,18 @@ const routes: Routes = [
       module => module.SowModule
     )
   },
-  { path: 'roles', component: RolesComponent },
   {
     path: 'opportunity',
     loadChildren: () => import('./feature_modules/opportunity/opportunity.module').then(
       module => module.OpportunityModule
     )
   },
+  {
+    path: 'position',
+    loadChildren: () => import('./feature_modules/position/position.module').then(
+      module => module.PositionModule
+    )
+  }
 ];
 
 @NgModule({

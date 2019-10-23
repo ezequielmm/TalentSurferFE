@@ -1,50 +1,50 @@
-<div class="app-sow">
-    <div class="container opp-sow">
+<div class="app-position">
+    <div class="container opp-position">
         <section class="control-items">
-            <h2 class="title">SOW</h2>
+            <h2 class="title">Position</h2>
             <div>
                 <button (click)="openDialog()" mat-button class="control-item-button"> + Add New</button>
             </div>
         </section>
 
-        <table class="sow-table" mat-table [dataSource]="sows">
+        <table class="position-table" mat-table [dataSource]="positions">
             <!-- ID Column -->
             <ng-container matColumnDef="id">
                 <th mat-header-cell class="header-title" *matHeaderCellDef> ID </th>
-                <td mat-cell *matCellDef="let sow"> {{sow.id}} </td>
+                <td mat-cell *matCellDef="let position"> {{position.id}} </td>
             </ng-container>
 
             <!-- Order Column -->
             <ng-container matColumnDef="order">
                 <th mat-header-cell *matHeaderCellDef> Sort Order </th>
-                <td mat-cell *matCellDef="let sow"> {{sow.sortOrder}} </td>
+                <td mat-cell *matCellDef="let position"> {{position.sortOrder}} </td>
             </ng-container>
 
-            <!-- Sow Column -->
+            <!-- Position Column -->
             <ng-container matColumnDef="description">
-                <th mat-header-cell *matHeaderCellDef> SOW </th>
-                <td mat-cell *matCellDef="let sow"> {{sow.description}} </td>
+                <th mat-header-cell *matHeaderCellDef> Position Description </th>
+                <td mat-cell *matCellDef="let position"> {{position.description}} </td>
             </ng-container>
 
             <!-- archiving flag Column -->
             <ng-container matColumnDef="archiving_flag">
                 <th mat-header-cell *matHeaderCellDef> Archiving Flag </th>
-                <td mat-cell *matCellDef="let sow">
-                    <mat-checkbox [checked]="sow.archivingFlag" disabled></mat-checkbox>
+                <td mat-cell *matCellDef="let position">
+                    <mat-checkbox [checked]="position.archivingFlag" disabled></mat-checkbox>
                 </td>
             </ng-container>
 
             <!-- comments Column -->
             <ng-container matColumnDef="comments">
                 <th mat-header-cell *matHeaderCellDef> Comments </th>
-                <td mat-cell *matCellDef="let sow"> {{sow.comments}} </td>
+                <td mat-cell *matCellDef="let position"> {{position.comments}} </td>
             </ng-container>
 
             <!-- action Column -->
             <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef> Action </th>
-                <td mat-cell *matCellDef="let sow" class="text-center">
-                    <button (click)="openEditSowModal(sow)" class="edit-button-custom">
+                <td mat-cell *matCellDef="let position" class="text-center">
+                    <button (click)="openEditPositionModal(position)" class="edit-button-custom">
                         <img src="assets/img/edit-24px.svg">
                     </button>
                 </td>

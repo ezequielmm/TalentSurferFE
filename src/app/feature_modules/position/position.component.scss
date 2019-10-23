@@ -1,0 +1,75 @@
+@import 'variables';
+
+.app-position {
+    box-shadow: 0;
+    .control-items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+            font-size: 18px;
+            font-weight: 700
+        }
+    }
+
+    .position-table {
+        width: 100%;
+    }
+    
+    .container {
+        padding-top: 64px;
+        padding-left: 15%;
+        padding-right: 15%;
+        background-color: $white-smoke;
+    }
+
+    .container .control-items{
+        margin-bottom: 32px;
+        .control-item-button {
+            border: 1px solid $royal-blue;
+            border-radius: 18px;
+            font-family: $font-family-roboto;
+            color: $royal-blue;
+            background-color: $white-smoke;
+        }
+    }
+    
+    .container .view-title {
+        font-family: $font-family-roboto;
+        font-weight: 700;
+        font-size: 18px;
+        color: $pure-black;
+        letter-spacing: 0.26px;
+    }
+    
+    .mat-header-cell {
+        font-weight: 700;
+        color: $bastille;
+        font-size: 14px;
+        background-color: $azure;
+        border: 1px solid $ghost;
+        padding-left: 12px;
+        padding-right: 12px;
+        letter-spacing: 0.19px;
+    }
+    
+    .mat-cell {
+        padding-left: 12px;
+        padding-right: 12px;
+        border: 1px solid $ghost;
+        color: $charcoal;
+    }
+    
+    .edit-button-custom {
+        border-radius: 50%;
+        border: none;
+        background-color: $white;
+        cursor: pointer;
+    }
+    
+    .opp-position {
+        .progress-loader {
+            margin: 10% 50%;
+        }
+    }
+}

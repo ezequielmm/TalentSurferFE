@@ -11,7 +11,8 @@ export const environment = {
   serviceLineUrl: 'api/serviceline',
   positionStatusUrl: 'api/positionstatus',
   sowUrl: 'api/sow',
-  opportunityUrl: 'api/opportunity'
+  opportunityUrl: 'api/opportunity',
+  positionUrl: 'api/position'
 };
 
 /*

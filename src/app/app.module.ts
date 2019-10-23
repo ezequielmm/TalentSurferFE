@@ -7,8 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './core/_modules/material/material.module';
 import { CoreModule } from './core/core.module';
-import { RolesComponent } from './roles/roles.component';
-import { ManagementModule } from './management/management.module';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
@@ -19,8 +17,7 @@ import { InMemoryDataService } from './_service/in-memory-data.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    RolesComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +28,6 @@ import { InMemoryDataService } from './_service/in-memory-data.service';
     MatProgressSpinnerModule,
     MatNativeDateModule,
     CoreModule,
-    ManagementModule,
     MatTableModule,
     HttpClientModule,
     FormsModule,
