@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { PositionStatusComponent } from './position-status/position-status.component';
 import { RolesComponent } from './roles/roles.component';
 import { ManagementComponent } from './management/management.component';
 
@@ -38,7 +37,10 @@ const routes: Routes = [
       module => module.SeniorityModule
     )
   },
-  { path: 'position-status', component: PositionStatusComponent },
+  { path: 'position-status',
+    loadChildren: () => import('./feature_modules/position-status/position-status.module').then(
+      module => module.PositionStatusModule
+    ) },
   { path: 'roles', component: RolesComponent },
   { path: 'management', component: ManagementComponent }
 ];

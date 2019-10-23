@@ -1,6 +1,6 @@
-import { Status } from '../feature_modules/status/status';
+import { PositionStatus } from '../feature_modules/position-status/position-status';
 
-export const STATUSES: Status[] = [
+export const POSITIONSTATUSES: PositionStatus[] = [
   {
     id: 1, sortOrder: 1, description: "Waiting for Feedback", archivingFlag: false, comments: ""
   },

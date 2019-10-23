@@ -8,7 +8,8 @@ export const environment = {
   locationUrl: 'api/location',
   statusUrl: 'api/status',
   seniorityUrl: 'api/seniority',
-  serviceLineUrl: 'api/serviceline'
+  serviceLineUrl: 'api/serviceline',
+  positionStatusUrl: 'api/positionstatus'
 };
 
 /*
