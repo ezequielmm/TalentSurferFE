@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './core/_modules/material/material.module';
 import { CoreModule } from './core/core.module';
-import { BusinessUnitComponent } from './business-unit/business-unit.component';
 import { RolesComponent } from './roles/roles.component';
 import { PositionStatusComponent } from './position-status/position-status.component';
 import { ManagementModule } from './management/management.module';
@@ -21,12 +20,12 @@ import { CertaintyModule } from './feature_modules/certainty/certainty.module';
 import { LocationModule } from './feature_modules/location/location.module';
 import { StatusModule } from './feature_modules/status/status.module';
 import { SeniorityModule } from './feature_modules/seniority/seniority.module';
+import { ServiceLineModule } from './feature_modules/service-line/service-line.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    BusinessUnitComponent,
     RolesComponent,
     PositionStatusComponent
   ],
@@ -37,6 +36,7 @@ import { SeniorityModule } from './feature_modules/seniority/seniority.module';
     LocationModule,
     StatusModule,
     SeniorityModule,
+    ServiceLineModule,
     BrowserAnimationsModule,
     MaterialModule,
     MatDatepickerModule,

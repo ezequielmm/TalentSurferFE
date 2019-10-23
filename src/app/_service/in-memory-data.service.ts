@@ -4,6 +4,7 @@ import { CERTAINTIES as certainty } from '../_mocks/mock-certainties';
 import { LOCATIONS as location } from '../_mocks/mock-locations';
 import { STATUSES as status } from '../_mocks/mock-statuses';
 import { SENIORITIES as seniority } from '../_mocks/mock-seniorities';
+import { SERVICELINES as serviceline } from '../_mocks/mock-service-lines';
 
 @Injectable({
     providedIn: "root"
@@ -12,6 +13,6 @@ import { SENIORITIES as seniority } from '../_mocks/mock-seniorities';
 export class InMemoryDataService implements InMemoryDbService {
 
     createDb() {
-        return { certainty, location, status, seniority };
+        return { certainty, location, status, seniority, serviceline };
     }
 }
