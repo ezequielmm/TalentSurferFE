@@ -50,7 +50,12 @@ const routes: Routes = [
     )
   },
   { path: 'roles', component: RolesComponent },
-  { path: 'management', component: ManagementComponent }
+  {
+    path: 'opportunity',
+    loadChildren: () => import('./feature_modules/opportunity/opportunity.module').then(
+      module => module.OpportunityModule
+    )
+  },
 ];
 
 @NgModule({

@@ -10,7 +10,8 @@ export const environment = {
   seniorityUrl: 'api/seniority',
   serviceLineUrl: 'api/serviceline',
   positionStatusUrl: 'api/positionstatus',
-  sowUrl: 'api/sow'
+  sowUrl: 'api/sow',
+  opportunityUrl: 'api/opportunity'
 };
 
 /*
