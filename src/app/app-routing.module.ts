@@ -37,10 +37,18 @@ const routes: Routes = [
       module => module.SeniorityModule
     )
   },
-  { path: 'position-status',
+  {
+    path: 'position-status',
     loadChildren: () => import('./feature_modules/position-status/position-status.module').then(
       module => module.PositionStatusModule
-    ) },
+    )
+  },
+  {
+    path: 'sow',
+    loadChildren: () => import('./feature_modules/sow/sow.module').then(
+      module => module.SowModule
+    )
+  },
   { path: 'roles', component: RolesComponent },
   { path: 'management', component: ManagementComponent }
 ];

@@ -1,0 +1,38 @@
+<div class="app-edit-sow modal">
+    <div class="modal-title">
+        <h2 class="primary">Edit SOW</h2>
+    </div>
+
+    <div class="modal-container">
+        <form [formGroup]='editSowForm' (ngSubmit)="editSow()">
+            <section class="modal-content">
+                <mat-form-field>
+                    <mat-label>Id</mat-label>
+                    <input matInput type="text" formControlName="id" placeholder="Id">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Sort Order</mat-label>
+                    <input matInput type="number" formControlName="sortOrder" placeholder="Sort Order">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="text" formControlName="description" placeholder="SOW">
+                </mat-form-field>
+
+                <mat-label class="flag-checkbox">
+                    <mat-checkbox formControlName="archivingFlag" [checked]="archivingFlag"></mat-checkbox> Archiving Flag
+                </mat-label>
+
+                <mat-form-field>
+                    <textarea matInput formControlName="comments" type="text" placeholder="Leave a comment"></textarea>
+                </mat-form-field>
+            </section>
+
+            <section class="btn-group-modal">
+                <button mat-button type="button" class="cancel-btn" (click)="closeDialog()">Cancel</button>
+                <button mat-raised-button type="submit" color="primary" [disabled]="!editSowForm.valid" class="action-btn">Edit</button>
+            </section>
+        </form>
+    </div>
+</div>
