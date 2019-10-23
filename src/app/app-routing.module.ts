@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PositionStatusComponent } from './position-status/position-status.component';
 import { RolesComponent } from './roles/roles.component';
-import { SeniorityComponent } from './seniority/seniority.component';
 import { BusinessUnitComponent } from './business-unit/business-unit.component';
 import { ManagementComponent } from './management/management.component';
 
@@ -23,9 +22,12 @@ const routes: Routes = [
     loadChildren: () => import('./feature_modules/status/status.module').then(
       module => module.StatusModule
   )},
+  { path: 'seniority',
+    loadChildren: () => import('./feature_modules/seniority/seniority.module').then(
+      module => module.SeniorityModule
+  )},
   { path: 'position-status', component: PositionStatusComponent },
   { path: 'roles', component: RolesComponent },
-  { path: 'seniority', component: SeniorityComponent },
   { path: 'management', component: ManagementComponent }
 ];
 

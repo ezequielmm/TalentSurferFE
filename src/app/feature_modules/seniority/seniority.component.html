@@ -1,0 +1,62 @@
+<div class="app-seniority">
+    <div class="container opp-seniority">
+        <section class="control-items">
+            <h2 class="title">Seniority</h2>
+            <div>
+                <button (click)="openDialog()" mat-button class="control-item-button"> + Add New</button>
+            </div>
+        </section>
+
+        <table class="seniority-table" mat-table [dataSource]="seniorities">
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell class="header-title" *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let seniority"> {{seniority.id}} </td>
+            </ng-container>
+
+            <!-- Order Column -->
+            <ng-container matColumnDef="order">
+                <th mat-header-cell *matHeaderCellDef> Sort Order </th>
+                <td mat-cell *matCellDef="let seniority"> {{seniority.sortOrder}} </td>
+            </ng-container>
+
+            <!-- Description Column -->
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let seniority"> {{seniority.description}} </td>
+            </ng-container>
+
+            <!-- archiving flag Column -->
+            <ng-container matColumnDef="archiving_flag">
+                <th mat-header-cell *matHeaderCellDef> Archiving Flag </th>
+                <td mat-cell *matCellDef="let seniority">
+                    <mat-checkbox [checked]="seniority.archivingFlag" disabled></mat-checkbox>
+                </td>
+
+            </ng-container>
+
+            <!-- comments Column -->
+            <ng-container matColumnDef="comments">
+                <th mat-header-cell *matHeaderCellDef> Comments </th>
+                <td mat-cell *matCellDef="let seniority"> {{seniority.comments}} </td>
+            </ng-container>
+
+            <!-- action Column -->
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let seniority" class="text-center">
+                    <button (click)="openEditSeniorityModal(seniority)" class="edit-button-custom">
+                        <img src="assets/img/edit-24px.svg">
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <div class="progress-loader" [hidden]="!loading">
+            <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+        </div>
+    </div>
+</div>
