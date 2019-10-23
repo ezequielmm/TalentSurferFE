@@ -7,10 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './core/_modules/material/material.module';
 import { CoreModule } from './core/core.module';
-import { OpportunityLocationComponent } from './opportunity-location/opportunity-location.component';
 import { SeniorityComponent } from './seniority/seniority.component';
 import { BusinessUnitComponent } from './business-unit/business-unit.component';
-import { OpportunityStatusComponent } from './opportunity-status/opportunity-status.component';
 import { RolesComponent } from './roles/roles.component';
 import { PositionStatusComponent } from './position-status/position-status.component';
 import { ManagementModule } from './management/management.module';
@@ -22,15 +20,14 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './_service/in-memory-data.service';
 import { CertaintyModule } from './feature_modules/certainty/certainty.module';
 import { LocationModule } from './feature_modules/location/location.module';
+import { StatusModule } from './feature_modules/status/status.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    OpportunityLocationComponent,
     SeniorityComponent,
     BusinessUnitComponent,
-    OpportunityStatusComponent,
     RolesComponent,
     PositionStatusComponent
   ],
@@ -39,6 +36,7 @@ import { LocationModule } from './feature_modules/location/location.module';
     AppRoutingModule,
     CertaintyModule,
     LocationModule,
+    StatusModule,
     BrowserAnimationsModule,
     MaterialModule,
     MatDatepickerModule,

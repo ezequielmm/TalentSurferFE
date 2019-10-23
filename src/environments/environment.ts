@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   certaintyUrl: 'api/certainty',
-  locationUrl: 'api/location'
+  locationUrl: 'api/location',
+  statusUrl: 'api/status'
 };
 
 /*

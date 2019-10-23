@@ -4,7 +4,6 @@ import { HomeComponent } from './home/home.component';
 import { PositionStatusComponent } from './position-status/position-status.component';
 import { RolesComponent } from './roles/roles.component';
 import { SeniorityComponent } from './seniority/seniority.component';
-import { OpportunityStatusComponent } from './opportunity-status/opportunity-status.component';
 import { BusinessUnitComponent } from './business-unit/business-unit.component';
 import { ManagementComponent } from './management/management.component';
 
@@ -20,7 +19,10 @@ const routes: Routes = [
     loadChildren: () => import('./feature_modules/location/location.module').then(
       module => module.LocationModule
   )},
-  { path: 'opportunity-status', component: OpportunityStatusComponent },
+  { path: 'status',
+    loadChildren: () => import('./feature_modules/status/status.module').then(
+      module => module.StatusModule
+  )},
   { path: 'position-status', component: PositionStatusComponent },
   { path: 'roles', component: RolesComponent },
   { path: 'seniority', component: SeniorityComponent },
