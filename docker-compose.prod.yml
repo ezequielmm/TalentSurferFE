@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+
+  talent-surfer-app:
+    container_name: talent-surfer-app
+    image: talent-surfer-app
+    build:
+      context: .
+      dockerfile: prod.Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - talent-surfer-network
+
+networks:
+  talent-surfer-network:
+    driver: bridge

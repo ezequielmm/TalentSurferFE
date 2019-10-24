@@ -26,7 +26,7 @@
                 </mat-form-field>
 
                 <mat-label class="flag-checkbox">
-                    <mat-checkbox formControlName="archivingFlag" [checked]="archivingFlag"></mat-checkbox> Archiving Flag
+                    <mat-checkbox formControlName="archivingFlag" [checked]="this.editCertaintyForm.controls['archivingFlag'].value"></mat-checkbox> Archiving Flag
                 </mat-label>
 
                 <mat-form-field>
