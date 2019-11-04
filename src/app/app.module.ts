@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './core/_modules/material/material.module';
@@ -17,7 +16,6 @@ import { InMemoryDataService } from './_service/in-memory-data.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +34,7 @@ import { InMemoryDataService } from './_service/in-memory-data.service';
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests. => in development with a real API
-    // please remove HttpClientInMemoryWebApiModule => 
+    // please remove HttpClientInMemoryWebApiModule =>
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService
     )

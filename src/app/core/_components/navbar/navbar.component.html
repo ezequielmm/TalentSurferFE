@@ -5,13 +5,13 @@
       <span class="special">Surfer</span>
     </a>
 
-    <h1 class="navbar-title">
+    <h1 class="navbar-title" *ngIf="isUserSignedIn">
       <a routerLink="/opportunity">
         Opportunity Management
       </a>
     </h1>
 
-    <button mat-button [matMenuTriggerFor]="menu" class="navbar-item">
+    <button mat-button [matMenuTriggerFor]="menu" class="navbar-item" *ngIf="isUserSignedIn">
       Data Management
       <mat-icon>keyboard_arrow_down</mat-icon>
     </button>
@@ -43,12 +43,23 @@
       </button>
     </mat-menu>
 
-    <div class="navbar-control">
+    <div class="navbar-control" *ngIf="isUserSignedIn">
       <div class="navbar-control-item">
-        <button mat-icon-button>
-          <mat-icon>account_circle</mat-icon>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <figure class="profile-figure" *ngIf="userProfileImage">
+            <img class="user-profile-image" [src]="userProfileImage" alt="User Profile Image" />
+          </figure>
+          <mat-icon>keyboard_arrow_down</mat-icon>
         </button>
-      </div>    
+        <mat-menu #menu="matMenu" xPosition="before">
+          <div class="user-profile-menu">
+            <h4 class="user-profile-name">{{userProfileName}}</h4>
+            <button mat-menu-item (click)="signOut()">
+              <mat-icon>exit_to_app</mat-icon> Sign Out
+            </button>
+          </div>
+        </mat-menu>
+      </div>
     </div>
 
   </mat-toolbar>

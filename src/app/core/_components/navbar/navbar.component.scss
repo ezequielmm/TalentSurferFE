@@ -85,10 +85,42 @@
         position: absolute;
         right: 0px;
         padding-right: 16px;
+        .mat-button-wrapper {
+            display: flex;
+            align-items: center;
+        }
+        .profile-figure {
+            margin: 0 5px 0 0;
+        }
     }
 
     .navbar-container .navbar-control .navbar-control-item {
         float: right;
     }
 
+    .user-profile-image {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+
+}
+
+.mat-menu-panel {
+    .mat-menu-content:not(:empty) {
+        padding: 0px;
+    }
+}
+
+.user-profile-menu  {
+    .user-profile-name {
+        padding: 10px;
+        margin: 0;
+        background: $ghost;
+        color: $olive-black;
+    }
+    .mat-icon {
+        padding: 0;
+        margin: 0 5px 0 0;
+    }
 }
