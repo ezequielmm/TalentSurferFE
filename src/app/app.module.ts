@@ -10,7 +10,6 @@ import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './_service/in-memory-data.service';
 
 @NgModule({
@@ -30,14 +29,7 @@ import { InMemoryDataService } from './_service/in-memory-data.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests. => in development with a real API
-    // please remove HttpClientInMemoryWebApiModule =>
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService
-    )
+    MatProgressSpinnerModule
   ],
   exports: [
     CoreModule
