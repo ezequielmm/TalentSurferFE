@@ -1,7 +1,27 @@
 export class Opportunity {
     id: number;
     name: string;
+    product: string;
+    projectName: string;
+    hiringManager: string;
     owner: string;
-    status: string;
+    certaintyId: number;
+    totalFTEs: string;
+    primaryLocationId: number;
+    proposalFolder: string;
+    sow: number;
+    eyId: string;
+    serviceLineId: number;
+    requestedByName: string;
+    requestedByEmail: string;
+    requestedOn: Date;
+    contact: string;
     startDate: Date;
+    endDate: Date;
+    duration: string;
+    additionalLocationsIds: number[];
+    mapId: number;
+    statusId: number;
+    originalOpptCopy: string;
+    opportunityLog: string;
 }

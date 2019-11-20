@@ -1,7 +1,7 @@
-export class Sow {
+export class Project {
     id: number;
     sortOrder: number;
-    name: string;
+    description: string;
     archivingFlag: boolean;
     comments: string;
 }

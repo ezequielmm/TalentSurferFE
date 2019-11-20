@@ -1,0 +1,156 @@
+<div class="app-edit-opportunity">
+  <div class="container add-opportunity">
+
+    <section class="step-container">
+      <section class="control-items">
+        <h1 class="title">Edit Opportunity Management</h1>
+      </section>
+
+      <form [formGroup]="editOpportunityForm" (ngSubmit)="editOpportunity()">
+        <section class="form-content-wrapper">
+          <div class="form-column">
+            <mat-form-field>
+              <input matInput type="text" placeholder="Id" formControlName="id" readonly>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput type="text" placeholder="Name" formControlName="name" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput type="text" placeholder="EY Product" formControlName="product">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input type="text" placeholder="EY Project Name" aria-label="EY Project Name" matInput
+                formControlName="project" [matAutocomplete]="autoProjects" required>
+              <mat-autocomplete #autoProjects="matAutocomplete" [displayWith]="displayValue">
+                <mat-option *ngFor="let project of projects" [value]="project">
+                  {{project.description}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput type="text" placeholder="Hiring Manager" formControlName="hiringManager">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput type="text" placeholder="Owner" formControlName="owner" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input type="text" placeholder="Certainty" aria-label="Certainty" matInput formControlName="certainty"
+                [matAutocomplete]="autoCertainty" required>
+              <mat-autocomplete #autoCertainty="matAutocomplete" [displayWith]="displayValue">
+                <mat-option *ngFor="let certainty of certainties" [value]="certainty">
+                  {{certainty.description}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+
+          <div class="form-column">
+            <mat-form-field>
+              <mat-label>Primary Location</mat-label>
+              <mat-select formControlName="primaryLocation" [compareWith]="compareFn" required>
+                <mat-option *ngFor="let location of locations" [value]="location">
+                  {{location.description}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput type="text" placeholder="Proposal Folder" formControlName="proposalFolder">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input type="text" placeholder="SOW #" aria-label="SOW #" matInput formControlName="sow"
+                [matAutocomplete]="autoSow">
+              <mat-autocomplete #autoSow="matAutocomplete" [displayWith]="displayValue">
+                <mat-option *ngFor="let sow of sows" [value]="sow">
+                  {{sow.name}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput type="text" placeholder="EY Id" formControlName="eyId">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input type="text" placeholder="Service Line" aria-label="Service Line" matInput
+                formControlName="serviceLine" [matAutocomplete]="autoServiceLine" required>
+              <mat-autocomplete #autoServiceLine="matAutocomplete" [displayWith]="displayValue">
+                <mat-option *ngFor="let serviceline of serviceLines" [value]="serviceline">
+                  {{serviceline.description}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput type="text" placeholder="Requested By" formControlName="requestedByName" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput [matDatepicker]="requestedOn" [min]="minRequestedOnDate" placeholder="Requested On"
+                formControlName="requestedOn" (dataChange)="updateStartDate($event)"
+                (dateInput)="updateStartDate($event)" required>
+              <mat-datepicker-toggle matSuffix [for]="requestedOn"></mat-datepicker-toggle>
+              <mat-datepicker #requestedOn></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+          <div class="form-column">
+            <mat-form-field>
+              <input matInput type="email" placeholder="Requested By Email" formControlName="requestedByEmail">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput type="text" placeholder="Contact" formControlName="contact">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput [matDatepicker]="startDate" placeholder="Start Date" [min]="minStartDate"
+                formControlName="startDate" (dataChange)="updateEndDate($event)" (dateInput)="updateEndDate($event)"
+                required>
+              <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+              <mat-datepicker #startDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput [matDatepicker]="endDate" placeholder="End Date" [min]="minEndDate"
+                formControlName="endDate" (dateInput)="opportunityDuration($event)"
+                (dateChange)="opportunityDuration($event)" required>
+              <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+              <mat-datepicker #endDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput type="text" placeholder="Duration" formControlName="duration" value="{{durationDate}}"
+                readonly>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Additional Location</mat-label>
+              <mat-select formControlName="additionalLocations" [compareWith]="compareFn" multiple>
+                <mat-option *ngFor="let location of locations" [value]="location">
+                  {{location.description}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput type="text" placeholder="Progress (Status)" formControlName="status">
+            </mat-form-field>
+          </div>
+        </section>
+
+        <section class="btn-group-form">
+          <button mat-button type="button" routerLink="/opportunity" (click)="cancelOpportunityEdition()"
+            class="cancel-btn">Cancel</button>
+          <button mat-raised-button type="submit" color="primary" class="action-btn">Edit Opportunity</button>
+        </section>
+      </form>
+    </section>
+
+  </div>
+</div>

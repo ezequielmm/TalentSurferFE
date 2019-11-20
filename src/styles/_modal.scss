@@ -58,3 +58,64 @@
     
 }
 
+@mixin modal-large {
+  width: 100%;
+  
+  .modal-title {
+    background-color: $white-smoke;
+    padding: 24px;
+    text-align: center;
+    & > h2.primary {
+      margin: 0;
+    }
+  }
+  
+  .modal-container {
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    & > * {
+      width: 100%;
+    }
+    
+  
+    .modal-content {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+  .btn-group-modal {
+    padding: 24px;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    border-top: $btn-group-borderline;
+  
+    button.action-btn {
+      background: $btn-gradient;
+      font-size: 14px;
+      border-radius: 18px;
+      font-family: $font-family-roboto;
+      color: $white;
+      text-align: center;
+      min-width: 100px;
+      &:disabled {
+        background: $white-smoke;
+        color: $disabled-color;
+      }
+    }
+    
+    .cancel-btn {
+      background-color: $white;
+      font-size: 14px;
+      border-radius: 18px;
+      font-family: $font-family-roboto;
+      color: $royal-blue;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+  
+}

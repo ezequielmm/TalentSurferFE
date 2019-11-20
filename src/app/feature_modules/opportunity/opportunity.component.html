@@ -3,7 +3,7 @@
         <section class="control-items">
             <h2 class="title">Opportunities</h2>
             <div>
-                <button (click)="openDialog()" mat-button class="control-item-button"> + Add New</button>
+                <button routerLink="add" mat-button class="control-item-button"> + Add New</button>
             </div>
         </section>
 
@@ -35,7 +35,7 @@
             <!-- comments Column -->
             <ng-container matColumnDef="startDate">
                 <th mat-header-cell *matHeaderCellDef> Start Date </th>
-                <td mat-cell *matCellDef="let opportunity"> {{opportunity.startDate}} </td>
+                <td mat-cell *matCellDef="let opportunity"> {{opportunity.startDate | date}} </td>
             </ng-container>
 
 
@@ -43,7 +43,7 @@
             <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef> Action </th>
                 <td mat-cell *matCellDef="let opportunity" class="text-center">
-                    <button (click)="openEditOpportunityModal(opportunity)" class="edit-button-custom">
+                    <button [routerLink]="['edit/', opportunity.id]" class="edit-button-custom">
                         <img src="assets/img/edit-24px.svg">
                     </button>
                 </td>

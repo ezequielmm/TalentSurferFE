@@ -11,7 +11,11 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatProgressSpinnerModule,
-  MatTableModule
+  MatTableModule,
+  MatAutocompleteModule,
+  MatStepperModule,
+  MatGridListModule,
+  MatDatepickerModule
 } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -30,7 +34,11 @@ import { MatIconModule } from '@angular/material/icon';
     MatDialogModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
-    MatTableModule
+    MatTableModule,
+    MatStepperModule,
+    MatAutocompleteModule,
+    MatGridListModule,
+    MatDatepickerModule 
   ],
   exports: [
     MatInputModule,
@@ -44,7 +52,11 @@ import { MatIconModule } from '@angular/material/icon';
     MatDialogModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
-    MatTableModule
+    MatTableModule,
+    MatStepperModule,
+    MatAutocompleteModule,
+    MatGridListModule,
+    MatDatepickerModule 
   ]
 })
 

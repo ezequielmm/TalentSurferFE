@@ -13,9 +13,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { InMemoryDataService } from './_service/in-memory-data.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,15 +29,8 @@ import { InMemoryDataService } from './_service/in-memory-data.service';
     ReactiveFormsModule,
     MatProgressSpinnerModule
   ],
-  exports: [
-    CoreModule
-  ],
-  providers: [
-    InMemoryDataService
-  ],
-  bootstrap: [
-    AppComponent
-  ]
+  exports: [CoreModule],
+  providers: [InMemoryDataService],
+  bootstrap: [AppComponent]
 })
-
-export class AppModule { }
+export class AppModule {}

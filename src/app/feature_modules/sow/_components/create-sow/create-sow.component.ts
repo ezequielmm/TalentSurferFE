@@ -21,7 +21,7 @@ export class CreateSowComponent implements OnInit {
   ngOnInit() {
     this.createSowForm = this.formBuilder.group({
       sortOrder: [0, Validators.required],
-      description: ['', Validators.required],
+      name: ['', Validators.required],
       archivingFlag: [false, Validators.required],
       comments: ['']
     });

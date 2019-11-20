@@ -73,6 +73,12 @@ const routes: Routes = [
       module => module.PositionModule
     ),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'project',
+    loadChildren: () => import('./feature_modules/project/project.module').then(
+      module => module.ProjectModule
+    )
   }
 ];
 

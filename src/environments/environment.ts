@@ -15,6 +15,7 @@ export const environment = {
   sowUrl: baseUrl + 'api/sow',
   opportunityUrl: baseUrl + 'api/opportunity',
   positionUrl: baseUrl + 'api/position',
+  productUrl: baseUrl + 'api/project'
 };
 
 /*

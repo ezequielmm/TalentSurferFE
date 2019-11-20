@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OpportunityService } from './opportunity.service';
 import { Opportunity } from './opportunity';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-opportunity',
@@ -9,7 +10,6 @@ import { Opportunity } from './opportunity';
 })
 
 export class OpportunityComponent implements OnInit {
-
   displayedColumns: string[] = [
     'id',
     'name',
@@ -22,11 +22,9 @@ export class OpportunityComponent implements OnInit {
   loading: boolean = false;
 
   constructor(
+    private dialog: MatDialog,
     private opportunityService: OpportunityService
   ) { }
-
-  openDialog(): void {
-  }
 
   openEditOpportunityModal(opportunity: Opportunity) {
   }

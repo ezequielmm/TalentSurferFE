@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'variables';
 @import 'modal';
+@import 'step-container';
 
 html,
 body {
@@ -36,6 +37,14 @@ body {
   @include modal;
 }
 
+.modal-large{
+  @include modal-large
+}
+
+.step-container{
+  @include step-container
+}
+
 mat-dialog-container.mat-dialog-container {
   padding: 0;
 }
@@ -43,3 +52,4 @@ mat-dialog-container.mat-dialog-container {
 .text-center {
   text-align: center;
 }
+

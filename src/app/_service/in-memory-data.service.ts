@@ -9,6 +9,7 @@ import { POSITIONSTATUSES as positionstatus } from '../_mocks/mock-position-stat
 import { SOWS as sow } from '../_mocks/mock-sows';
 import { OPPORTUNITIES as opportunity } from '../_mocks/mock-opportunities';
 import { POSITIONS as position } from '../_mocks/mock-positions';
+import { PROJECTS as project } from '../_mocks/mock-projects';
 
 @Injectable({
     providedIn: 'root'
@@ -17,6 +18,6 @@ import { POSITIONS as position } from '../_mocks/mock-positions';
 export class InMemoryDataService implements InMemoryDbService {
 
     createDb() {
-        return { certainty, location, status, seniority, serviceline, positionstatus, sow, opportunity, position };
+        return { certainty, location, status, seniority, serviceline, positionstatus, sow, opportunity, position, project };
     }
 }
