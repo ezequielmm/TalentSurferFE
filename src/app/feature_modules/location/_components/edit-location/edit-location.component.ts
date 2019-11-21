@@ -21,7 +21,6 @@ export class EditLocationComponent implements OnInit {
   ngOnInit() {
     this.editLocationForm = this.formBuilder.group({
       id: [{ value: 0, disabled: true }, Validators.required],
-      sortOrder: [0, Validators.required],
       description: ['', Validators.required],
       archivingFlag: [false, Validators.required],
       comments: ['']

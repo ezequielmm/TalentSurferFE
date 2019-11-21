@@ -20,7 +20,6 @@ export class CreatePositionComponent implements OnInit {
 
   ngOnInit() {
     this.createPositionForm = this.formBuilder.group({
-      sortOrder: [0, Validators.required],
       description: ['', Validators.required],
       archivingFlag: [false, Validators.required],
       comments: ['']

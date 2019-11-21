@@ -20,7 +20,6 @@ export class CreateLocationComponent implements OnInit {
 
   ngOnInit() {
     this.createLocationForm = this.formBuilder.group({
-      sortOrder: [0, Validators.required],
       description: ['', Validators.required],
       archivingFlag: [false, Validators.required],
       comments: ['']

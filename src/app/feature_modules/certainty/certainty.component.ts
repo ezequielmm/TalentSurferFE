@@ -15,7 +15,6 @@ export class CertaintyComponent implements OnInit {
 
   displayedColumns: string[] = [
     'id',
-    'order',
     'description',
     'value',
     'archiving_flag',

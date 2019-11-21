@@ -21,7 +21,6 @@ export class EditCertaintyComponent implements OnInit {
   ngOnInit() {
     this.editCertaintyForm = this.formBuilder.group({
       id: [{ value: 0, disabled: true }, Validators.required],
-      sortOrder: [0, Validators.required],
       description: ['', Validators.required],
       value: [0, Validators.required],
       archivingFlag: [false, Validators.required],

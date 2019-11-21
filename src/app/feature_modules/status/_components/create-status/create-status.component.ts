@@ -20,7 +20,6 @@ export class CreateStatusComponent implements OnInit {
 
   ngOnInit() {
     this.createStatusForm = this.formBuilder.group({
-      sortOrder: [0, Validators.required],
       description: ['', Validators.required],
       archivingFlag: [false, Validators.required],
       comments: ['']

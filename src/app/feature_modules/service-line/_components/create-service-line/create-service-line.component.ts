@@ -20,7 +20,6 @@ export class CreateServiceLineComponent implements OnInit {
 
   ngOnInit() {
     this.createServiceLineForm = this.formBuilder.group({
-      sortOrder: [0, Validators.required],
       description: ['', Validators.required],
       archivingFlag: [false, Validators.required],
       comments: ['']

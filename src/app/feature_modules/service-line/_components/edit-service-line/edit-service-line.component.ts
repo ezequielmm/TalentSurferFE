@@ -21,7 +21,6 @@ export class EditServiceLineComponent implements OnInit {
   ngOnInit() {
     this.editServiceLineForm = this.formBuilder.group({
       id: [{ value: 0, disabled: true }, Validators.required],
-      sortOrder: [0, Validators.required],
       description: ['', Validators.required],
       archivingFlag: [false, Validators.required],
       comments: ['']

@@ -20,7 +20,6 @@ export class CreateCertaintyComponent implements OnInit {
 
   ngOnInit() {
     this.createCertaintyForm = this.formBuilder.group({
-      sortOrder: [0, Validators.required],
       description: ['', Validators.required],
       value: [0, Validators.required],
       archivingFlag: [false, Validators.required],

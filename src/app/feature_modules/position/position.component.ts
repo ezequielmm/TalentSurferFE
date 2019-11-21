@@ -15,7 +15,6 @@ export class PositionComponent implements OnInit {
 
   displayedColumns: string[] = [
     'id',
-    'order',
     'description',
     'archiving_flag',
     'comments',

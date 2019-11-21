@@ -15,7 +15,6 @@ export class SowComponent implements OnInit {
 
   displayedColumns: string[] = [
     'id',
-    'order',
     'name',
     'archiving_flag',
     'comments',

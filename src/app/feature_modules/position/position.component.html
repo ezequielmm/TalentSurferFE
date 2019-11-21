@@ -14,12 +14,6 @@
                 <td mat-cell *matCellDef="let position"> {{position.id}} </td>
             </ng-container>
 
-            <!-- Order Column -->
-            <ng-container matColumnDef="order">
-                <th mat-header-cell *matHeaderCellDef> Sort Order </th>
-                <td mat-cell *matCellDef="let position"> {{position.sortOrder}} </td>
-            </ng-container>
-
             <!-- Position Column -->
             <ng-container matColumnDef="description">
                 <th mat-header-cell *matHeaderCellDef> Position Description </th>

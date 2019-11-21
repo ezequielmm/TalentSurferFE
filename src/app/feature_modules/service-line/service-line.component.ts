@@ -15,7 +15,6 @@ export class ServiceLineComponent implements OnInit {
 
   displayedColumns: string[] = [
     'id',
-    'order',
     'description',
     'archiving_flag',
     'comments',

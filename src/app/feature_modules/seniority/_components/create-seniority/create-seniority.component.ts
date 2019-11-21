@@ -20,7 +20,6 @@ export class CreateSeniorityComponent implements OnInit {
 
   ngOnInit() {
     this.createSeniorityForm = this.formBuilder.group({
-      sortOrder: [0, Validators.required],
       description: ['', Validators.required],
       archivingFlag: [false, Validators.required],
       comments: ['']
