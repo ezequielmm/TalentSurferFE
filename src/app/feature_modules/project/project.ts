@@ -1,7 +1,6 @@
 export class Project {
     id: number;
-    sortOrder: number;
-    description: string;
+    name: string;
     archivingFlag: boolean;
     comments: string;
 }

@@ -25,7 +25,7 @@
                 formControlName="project" [matAutocomplete]="autoProjects" required />
               <mat-autocomplete #autoProjects="matAutocomplete" [displayWith]="displayValue">
                 <mat-option *ngFor="let project of projects" [value]="project">
-                  {{ project.description }}
+                  {{ project.name }}
                 </mat-option>
               </mat-autocomplete>
               <mat-error *ngIf="!addOpportunityForm.controls.project.valid">Required Field</mat-error>

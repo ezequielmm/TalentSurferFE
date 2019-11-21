@@ -1,0 +1,31 @@
+<div class="app-create-project modal">
+    <div class="modal-title">
+        <h2 class="primary">Add Project</h2>
+    </div>
+
+    <div class="modal-container">
+        <form [formGroup]="createProjectForm" (ngSubmit)="createProject()">
+            <section class="modal-content">
+
+                <mat-form-field>
+                    <input matInput type="text" formControlName="name" placeholder="Name">
+                </mat-form-field>
+
+                <mat-label class="flag-checkbox">
+                    <mat-checkbox formControlName="archivingFlag"></mat-checkbox> Archiving Flag
+                </mat-label>
+
+                <mat-form-field>
+                    <textarea matInput name="comments" type="text" formControlName="comments"
+                        placeholder="Leave a comment"></textarea>
+                </mat-form-field>
+            </section>
+
+            <section class="btn-group-modal">
+                <button mat-button type="button" class="cancel-btn" (click)="closeDialog()">Cancel</button>
+                <button mat-raised-button type="submit" color="primary" [disabled]="!createProjectForm.valid"
+                    class="action-btn">Add</button>
+            </section>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="app-edit-project modal">
+    <div class="modal-title">
+        <h2 class="primary">Edit Project</h2>
+    </div>
+
+    <div class="modal-container">
+        <form [formGroup]='editProjectForm' (ngSubmit)="editProject()">
+            <section class="modal-content">
+                <mat-form-field>
+                    <mat-label>Id</mat-label>
+                    <input matInput type="text" formControlName="id" placeholder="Id">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="text" formControlName="name" placeholder="Name">
+                </mat-form-field>
+
+                <mat-label class="flag-checkbox">
+                    <mat-checkbox formControlName="archivingFlag"
+                        [checked]="this.editProjectForm.controls['archivingFlag'].value"></mat-checkbox> Archiving Flag
+                </mat-label>
+
+                <mat-form-field>
+                    <textarea matInput formControlName="comments" type="text" placeholder="Leave a comment"></textarea>
+                </mat-form-field>
+            </section>
+
+            <section class="btn-group-modal">
+                <button mat-button type="button" class="cancel-btn" (click)="closeDialog()">Cancel</button>
+                <button mat-raised-button type="submit" color="primary" [disabled]="!editProjectForm.valid"
+                    class="action-btn">Edit</button>
+            </section>
+        </form>
+    </div>
+</div>
