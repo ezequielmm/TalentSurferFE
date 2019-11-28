@@ -4,6 +4,7 @@ import { EditStatusComponent } from './_components/edit-status/edit-status.compo
 import { CreateStatusComponent } from './_components/create-status/create-status.component';
 import { StatusService } from './status.service';
 import { Status } from './status';
+import { CONSTANTS } from '../../shared/constants/common.constants';
 
 @Component({
   selector: "app-status",
@@ -22,6 +23,7 @@ export class StatusComponent implements OnInit {
   ];
   statuses: Status[] = [];
   loading: boolean = false;
+  constants = CONSTANTS;
 
   constructor(
     private dialog: MatDialog,

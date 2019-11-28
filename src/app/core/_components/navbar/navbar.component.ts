@@ -14,16 +14,58 @@ export class NavbarComponent implements OnInit {
   userProfileImage: string;
   userProfileName: string;
 
+  navLinks = [
+    {
+      link: 'certainty',
+      name : 'Certainty'
+    },
+    {
+      link: 'location',
+      name : 'Location'
+    },
+    {
+      link: 'position',
+      name : 'Position'
+    },
+    {
+      link: 'position-status',
+      name : 'Positions Status'
+    },
+    {
+      link: 'project',
+      name : 'Project'
+    },
+    {
+      link: 'seniority',
+      name : 'Seniority'
+    },
+    {
+      link: 'service-line',
+      name : 'Service Line'
+    },
+    {
+      link: 'sow',
+      name : 'SOW'
+    },
+    {
+      link: 'status',
+      name : 'Progress (Status)'
+    }
+  ];
+
   constructor(
     private authService: AuthService,
     private ngZone: NgZone
   ) { }
 
   ngOnInit() {
+    this.navLinks.sort((a, b) => a.name.localeCompare(b.name));
     this.authService.isSignedInListener.subscribe(
       isUserSingedIn => {
         this.ngZone.run(() => {
           this.isUserSignedIn = isUserSingedIn;
+          const token = this.authService.getUserInfoFromToken();
+          this.userProfileName = (token) ? token.nameid : '';
         });
       },
       error => console.error(error)

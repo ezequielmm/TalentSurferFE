@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OpportunityService } from './opportunity.service';
 import { Opportunity } from './opportunity';
 import { MatDialog } from '@angular/material';
+import { CONSTANTS } from '../../shared/constants/common.constants';
 
 @Component({
   selector: 'app-opportunity',
@@ -20,6 +21,7 @@ export class OpportunityComponent implements OnInit {
   ];
   opportunities: Opportunity[] = [];
   loading: boolean = false;
+  constants = CONSTANTS;
 
   constructor(
     private dialog: MatDialog,

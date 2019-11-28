@@ -2,7 +2,7 @@ export class Opportunity {
     id: number;
     name: string;
     product: string;
-    projectName: string;
+    projectId: number;
     hiringManager: string;
     owner: string;
     certaintyId: number;

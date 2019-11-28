@@ -4,6 +4,7 @@ import { EditSeniorityComponent } from './_components/edit-seniority/edit-senior
 import { CreateSeniorityComponent } from './_components/create-seniority/create-seniority.component';
 import { SeniorityService } from './seniority.service';
 import { Seniority } from './seniority';
+import { CONSTANTS } from '../../shared/constants/common.constants';
 
 @Component({
   selector: "app-seniority",
@@ -22,6 +23,7 @@ export class SeniorityComponent implements OnInit {
   ];
   seniorities: Seniority[] = [];
   loading: boolean = false;
+  constants = CONSTANTS;
 
   constructor(
     private dialog: MatDialog,

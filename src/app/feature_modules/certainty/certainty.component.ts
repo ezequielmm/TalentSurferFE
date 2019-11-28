@@ -4,6 +4,7 @@ import { EditCertaintyComponent } from './_components/edit-certainty/edit-certai
 import { CreateCertaintyComponent } from './_components/create-certainty/create-certainty.component';
 import { CertaintyService } from './certainty.service';
 import { Certainty } from './certainty';
+import { CONSTANTS } from '../../shared/constants/common.constants';
 
 @Component({
   selector: "app-certainty",
@@ -23,6 +24,7 @@ export class CertaintyComponent implements OnInit {
   ];
   certainties: Certainty[] = [];
   loading: boolean = false;
+  constants = CONSTANTS;
 
   constructor(
     private dialog: MatDialog,

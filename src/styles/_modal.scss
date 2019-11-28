@@ -24,10 +24,11 @@
       }
       
       .btn-group-modal {
+        min-width: 220px;
         padding: 24px;
         margin-top: 2rem;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         padding-top: 2rem;
         border-top: $btn-group-borderline;
       

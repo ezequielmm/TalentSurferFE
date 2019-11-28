@@ -15,8 +15,9 @@ constructor(private route: ActivatedRoute,
 
   ngOnInit() {
     const authToken = this.route.snapshot.queryParams.token;
+    const refreshToken = this.route.snapshot.queryParams.refreshToken;
     if (authToken) {
-      this.authService.setAuthToken(authToken);
+      this.authService.setAuthToken(authToken, refreshToken);
     }
   }
 

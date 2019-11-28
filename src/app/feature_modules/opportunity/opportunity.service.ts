@@ -43,10 +43,11 @@ export class OpportunityService {
         const additionalLocations = opportunityObj.additionalLocations;
         opportunityObj.sow = (opportunityObj.sow) ? opportunityObj.sow.id : null;
         opportunityObj.serviceLineId = (opportunityObj.serviceLine) ? opportunityObj.serviceLine.id : null;
-        opportunityObj.projectName = (opportunityObj.project) ? opportunityObj.project : null;
+        opportunityObj.projectId = (opportunityObj.project) ? opportunityObj.project.id : null;
         opportunityObj.certaintyId = (opportunityObj.certainty) ? opportunityObj.certainty.id : null;
         opportunityObj.primaryLocationId = (opportunityObj.primaryLocation) ? opportunityObj.primaryLocation.id : [];
         opportunityObj.additionalLocationsIds = (additionalLocations.length ) ? additionalLocations.map( location => location.id) : [];
+        opportunityObj.statusId = (opportunityObj.status) ? opportunityObj.status.id : null;
         opportunityObj.mapId = null;
         opportunityObj.originalOpptCopy = '';
         return opportunityObj;

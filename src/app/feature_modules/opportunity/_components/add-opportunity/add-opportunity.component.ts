@@ -7,12 +7,14 @@ import { Sow } from '../../../sow/sow';
 import { ServiceLine } from '../../../service-line/service-line';
 import { Location } from '../../../location/location';
 import { Project } from '../../../project/project';
+import { Status } from '../../../status/status';
 import { OpportunityService } from '../../opportunity.service';
 import { CertaintyService } from '../../../certainty/certainty.service';
 import { SowService } from '../../../sow/sow.service';
 import { ServiceLineService } from '../../../service-line/service-line.service';
 import { ProjectService } from '../../../project/project.service';
 import { LocationService } from '../../../location/location.service';
+import { StatusService } from '../../../status/status.service';
 import * as moment from 'moment';
 
 @Component({
@@ -33,6 +35,7 @@ export class AddOpportunityManagementComponent implements OnInit {
   projects: Project[];
   certainties: Certainty[];
   sows: Sow[];
+  statuses: Status[];
   serviceLines: ServiceLine[];
   locations: Location[];
   durationDate: string = '0 Month';
@@ -48,6 +51,7 @@ export class AddOpportunityManagementComponent implements OnInit {
     private serviceLineService: ServiceLineService,
     private projectService: ProjectService,
     private locationService: LocationService,
+    private statusService: StatusService,
     private formBuilder: FormBuilder,
     private router: Router
   ) { }
@@ -59,13 +63,14 @@ export class AddOpportunityManagementComponent implements OnInit {
     this.getServiceLines();
     this.getProjects();
     this.getLocations();
+    this.getStatuses();
   }
 
   private getCertainties() {
     this.certaintyService
       .getCertainties()
       .subscribe(
-        certainties => (this.certainties = certainties),
+        certainties => (this.certainties = certainties.filter(certainty => !certainty.archivingFlag)),
         error => console.log(error)
       );
   }
@@ -73,14 +78,22 @@ export class AddOpportunityManagementComponent implements OnInit {
   private getSows() {
     this.sowService
       .getSows()
-      .subscribe(sows => (this.sows = sows), error => console.log(error));
+      .subscribe(sows => (this.sows = sows.filter(sow => !sow.archivingFlag)),
+        error => console.log(error));
+  }
+
+  private getStatuses() {
+    this.statusService
+      .getStatuses()
+      .subscribe(statuses => (this.statuses = statuses.filter(status => !status.archivingFlag)),
+        error => console.log(error));
   }
 
   private getServiceLines() {
     this.serviceLineService
       .getServiceLines()
       .subscribe(
-        serviceLines => (this.serviceLines = serviceLines),
+        serviceLines => (this.serviceLines = serviceLines.filter(serviceLine => !serviceLine.archivingFlag)),
         error => console.log(error)
       );
   }
@@ -89,7 +102,7 @@ export class AddOpportunityManagementComponent implements OnInit {
     this.projectService
       .getProjects()
       .subscribe(
-        projects => (this.projects = projects),
+        projects => (this.projects = projects.filter(project => !project.archivingFlag)),
         error => console.log(error)
       );
   }
@@ -98,7 +111,7 @@ export class AddOpportunityManagementComponent implements OnInit {
     this.locationService
       .getLocations()
       .subscribe(
-        locations => (this.locations = locations),
+        locations => (this.locations = locations.filter(location => !location.archivingFlag)),
         error => console.log(error)
       );
   }
@@ -174,11 +187,11 @@ export class AddOpportunityManagementComponent implements OnInit {
       'YYYY-MM-DD'
     );
     const end = moment(this.addOpportunityForm.value.endDate, 'YYYY-MM-DD');
-    const dateCalculation = `${moment
+    let dateCalculation = `${moment
       .duration(end.diff(start))
       .asMonths()
-      .toFixed()
-      .toString()} Month`;
+      .toFixed()}`;
+    dateCalculation = (parseInt(dateCalculation, 10) > 1) ? `${dateCalculation} Months` : `${dateCalculation} Month`;
     this.addOpportunityForm.controls.duration.setValue(dateCalculation);
   }
 }
