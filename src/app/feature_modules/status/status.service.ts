@@ -16,6 +16,10 @@ export class StatusService {
         return this.http.get<Status[]>(environment.statusUrl);
     }
 
+    getStatusById(statusId: number): Observable<Status> {
+        return this.http.get<Status>(`${environment.statusUrl}/${statusId}`);
+    }
+
     createStatus(status: Status): Observable<Status> {
         return this.http.post<Status>(environment.statusUrl, status);
     }

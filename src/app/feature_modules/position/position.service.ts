@@ -16,6 +16,10 @@ export class PositionService {
         return this.http.get<Position[]>(environment.positionUrl);
     }
 
+    getPositionById(positionId: number): Observable<Position> {
+        return this.http.get<Position>(`${environment.positionUrl}/${positionId}`);
+    }
+
     createPosition(position: Position): Observable<Position> {
         return this.http.post<Position>(environment.positionUrl, position);
     }

@@ -251,7 +251,7 @@ export class EditOpportunityManagementComponent implements OnInit {
     this.editOpportunityForm.controls.duration.setValue(dateCalculation);
   }
 
-  compareFn(location1: Location, location2: Location) {
-    return location1 && location2 && location1.id === location2.id ? true : false;
+  compareFn(object1: Location, object2: Location): boolean {
+    return object1 && object2 && object1.id === object2.id ? true : false;
   }
 }
