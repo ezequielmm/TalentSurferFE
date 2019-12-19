@@ -13,5 +13,7 @@ export const environment = {
   sowUrl: `${baseUrl}api/sow`,
   opportunityUrl: `${baseUrl}api/opportunity`,
   positionUrl: `${baseUrl}api/position`,
-  projectUrl: `${baseUrl}api/project`
+  projectUrl: `${baseUrl}api/project`,
+  roleUrl: `${baseUrl}api/role`,
+  userUrl: `${baseUrl}api/user`
 };

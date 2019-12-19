@@ -1,0 +1,8 @@
+<div class="app-home">
+    <div class="contact-admin-info" *ngIf="accessLevel === 3">
+        <h3>Please contact one of the Admin users to grant your permissions</h3>
+        <ul>
+            <li *ngFor="let admin of admins"><a href="{{'mailto:' + admin.email}}">{{admin.email}}</a></li>
+        </ul>
+    </div>
+</div>

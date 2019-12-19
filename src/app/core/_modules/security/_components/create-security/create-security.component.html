@@ -1,0 +1,34 @@
+<div class="app-create-security modal">
+    <div class="modal-title">
+        <h2 class="primary">Add Security</h2>
+    </div>
+
+    <div class="modal-container">
+        <form [formGroup]="createUserForm" (ngSubmit)="createUser()">
+            <section class="modal-content">
+
+                <mat-form-field>
+                    <input matInput type="text" formControlName="email" placeholder="User Email" required>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Role</mat-label>
+                    <mat-select formControlName="role" required>
+                        <mat-option *ngFor="let role of roles" [value]="role">
+                            {{role.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-label class="flag-checkbox">
+                    <mat-checkbox formControlName="archivingFlag"></mat-checkbox> Archiving Flag
+                </mat-label>
+            </section>
+
+            <section class="btn-group-modal">
+                <button mat-button type="button" class="cancel-btn" (click)="closeDialog()">Cancel</button>
+                <button mat-raised-button type="submit" color="primary" [disabled]="!createUserForm.valid"
+                    class="action-btn">Add</button>
+            </section>
+        </form>
+    </div>
+</div>

@@ -13,43 +13,44 @@ export class NavbarComponent implements OnInit {
   isUserSignedIn: boolean;
   userProfileImage: string;
   userProfileName: string;
+  accessLevel: number;
 
   navLinks = [
     {
       link: 'certainty',
-      name : 'Certainty'
+      name: 'Certainty'
     },
     {
       link: 'location',
-      name : 'Location'
+      name: 'Location'
     },
     {
       link: 'position',
-      name : 'Position'
+      name: 'Position'
     },
     {
       link: 'position-status',
-      name : 'Positions Status'
+      name: 'Positions Status'
     },
     {
       link: 'project',
-      name : 'Project'
+      name: 'Project'
     },
     {
       link: 'seniority',
-      name : 'Seniority'
+      name: 'Seniority'
     },
     {
       link: 'service-line',
-      name : 'Service Line'
+      name: 'Service Line'
     },
     {
       link: 'sow',
-      name : 'SOW'
+      name: 'SOW'
     },
     {
       link: 'status',
-      name : 'Progress (Status)'
+      name: 'Progress (Status)'
     }
   ];
 
@@ -65,7 +66,8 @@ export class NavbarComponent implements OnInit {
         this.ngZone.run(() => {
           this.isUserSignedIn = isUserSingedIn;
           const token = this.authService.getUserInfoFromToken();
-          this.userProfileName = (token) ? token.nameid : '';
+          this.userProfileName = (token) ? token.nameid : null;
+          this.accessLevel = this.authService.getAccessLevel();
         });
       },
       error => console.error(error)
@@ -73,7 +75,6 @@ export class NavbarComponent implements OnInit {
   }
 
   signOut() {
-    this.authService.signOut();
-    this.authService.signIn();
+    this.authService.signOut().subscribe(res => this.authService.signIn());
   }
 }

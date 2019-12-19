@@ -5,13 +5,13 @@
       <span class="special">Surfer</span>
     </a>
 
-    <h1 class="navbar-title" *ngIf="isUserSignedIn">
+    <h1 class="navbar-title" *ngIf="isUserSignedIn && accessLevel < 3">
       <a routerLink="/opportunity">
         Opportunity Management
       </a>
     </h1>
 
-    <button mat-button [matMenuTriggerFor]="menu" class="navbar-item" *ngIf="isUserSignedIn">
+    <button mat-button [matMenuTriggerFor]="menu" class="navbar-item" *ngIf="isUserSignedIn && accessLevel < 3">
       Data Management
       <mat-icon>keyboard_arrow_down</mat-icon>
     </button>
@@ -21,6 +21,12 @@
         {{navLink.name}}
       </button>
     </mat-menu>
+
+    <h1 class="navbar-title" *ngIf="isUserSignedIn && accessLevel === 1">
+      <a routerLink="/security">
+       Security
+      </a>
+    </h1>
 
     <div class="navbar-control" *ngIf="isUserSignedIn">
       <div class="navbar-control-item">

@@ -1,0 +1,16 @@
+.app-home {
+    .contact-admin-info {
+        width: 50%;
+        height: 200px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+        text-align: center;
+        & > ul {
+            list-style: none;
+        }
+    }
+}
