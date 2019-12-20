@@ -68,6 +68,7 @@ export class NavbarComponent implements OnInit {
           const token = this.authService.getUserInfoFromToken();
           this.userProfileName = (token) ? token.nameid : null;
           this.accessLevel = this.authService.getAccessLevel();
+          this.userProfileImage = (token && token.image ) ? token.image : '';
         });
       },
       error => console.error(error)
