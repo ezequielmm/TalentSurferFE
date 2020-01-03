@@ -1,0 +1,24 @@
+@import 'variables';
+
+.breadcrumb {
+  ul {
+    font-weight: bold;
+    list-style: none;
+    display: flex;
+    
+    li > *, li > a > * {
+      vertical-align: middle;
+    }
+
+    li {
+      a {
+        color: $pure-black;
+        text-decoration: none;
+        margin-right: 6px;
+      }
+      a:hover {
+        color: $olive-black;
+      }
+    }
+  }
+}
