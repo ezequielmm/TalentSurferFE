@@ -1,0 +1,105 @@
+<div class="app-position-slots">
+    <div class="container position-slots">
+        <section class="control-items">
+            <h2 class="title">Position Slots</h2>
+            <div>
+                <button (click)="openAddPositionSlotDialog()" mat-button class="control-item-button"> {{constants.add}} </button>
+            </div>
+        </section>
+
+        <table class="opportunity-table" mat-table [dataSource]="positionSlots">
+            <!-- ID Column -->
+            <ng-container matColumnDef="position">
+                <th mat-header-cell class="header-title" *matHeaderCellDef> Position </th>
+                <td mat-cell *matCellDef="let positionSlot">{{positionSlot.position?.description}} </td>
+            </ng-container>
+
+            <!-- Order Column -->
+            <ng-container matColumnDef="neededSeniority">
+                <th mat-header-cell *matHeaderCellDef> Needed Seniority </th>
+                <td mat-cell *matCellDef="let positionSlot"> {{positionSlot.seniority?.description}} </td>
+            </ng-container>
+
+            <!-- Opportunity Column -->
+            <ng-container matColumnDef="primaryLocation">
+                <th mat-header-cell *matHeaderCellDef> Primary Location </th>
+                <td mat-cell *matCellDef="let positionSlot"> {{positionSlot.location?.description}} </td>
+            </ng-container>
+
+            <!-- archiving flag Column -->
+            <ng-container matColumnDef="additionalLocation">
+                <th mat-header-cell *matHeaderCellDef> Additional Locations </th>
+                <td mat-cell *matCellDef="let positionSlot"> <p *ngFor="let additionalLocation of positionSlot.additionalLocations"> {{additionalLocation.description}} </p></td>
+            </ng-container>
+
+            <!-- comments Column -->
+            <ng-container matColumnDef="tkt">
+                <th mat-header-cell *matHeaderCellDef> TKT# </th>
+                <td mat-cell *matCellDef="let positionSlot">
+                    <span *ngIf="positionSlot.tickets">#</span>{{positionSlot.tickets}}
+                </td>
+            </ng-container>
+
+             <!-- comments Column -->
+             <ng-container matColumnDef="glober">
+                <th mat-header-cell *matHeaderCellDef> Glober </th>
+                <td mat-cell *matCellDef="let positionSlot"> {{positionSlot.glober}} </td>
+            </ng-container>
+
+             <!-- comments Column -->
+             <ng-container matColumnDef="globerEmail">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let positionSlot"> {{positionSlot.globerEmail}} </td>
+            </ng-container>
+
+             <!-- comments Column -->
+             <ng-container matColumnDef="nonGlober">
+                <th mat-header-cell *matHeaderCellDef> Non Glober </th>
+                <td mat-cell *matCellDef="let positionSlot"> {{positionSlot.nonGlober}} </td>
+            </ng-container>
+
+            <!-- comments Column -->
+            <ng-container matColumnDef="nonGloberEmail">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let positionSlot"> {{positionSlot.nonGloberEmail}} </td>
+            </ng-container>
+
+            <!-- comments Column -->
+            <ng-container matColumnDef="candidateSeniority">
+                <th mat-header-cell *matHeaderCellDef> Candidate Seniority </th>
+                <td mat-cell *matCellDef="let positionSlot"> {{positionSlot.candidateSeniority?.description}} </td>
+            </ng-container>
+
+             <!-- comments Column -->
+             <ng-container matColumnDef="candidateLocation">
+                <th mat-header-cell *matHeaderCellDef> Candidate Location </th>
+                <td mat-cell *matCellDef="let positionSlot"> {{positionSlot.candidateLocation?.description}} </td>
+            </ng-container>
+
+             <!-- comments Column -->
+             <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let positionSlot"> {{positionSlot.status?.description}} </td>
+            </ng-container>
+
+
+            <!-- action Column -->
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let positionSlot" class="text-center">
+                    <button (click)="openEditPositionSlotDialog(positionSlot)" class="edit-button-custom">
+                        <img src="assets/img/edit-24px.svg">
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <p class="total-fte">Total FTEs: {{positionSlots.length}}</p>
+
+        <div class="progress-loader" [hidden]="!loading">
+            <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+        </div>
+    </div>
+</div>

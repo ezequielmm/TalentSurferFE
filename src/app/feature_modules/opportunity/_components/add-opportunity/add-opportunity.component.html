@@ -21,33 +21,31 @@
             </mat-form-field>
 
             <mat-form-field>
-              <input type="text" placeholder="EY Project Name" aria-label="EY Project Name" matInput
-                formControlName="project" [matAutocomplete]="autoProjects" required />
-              <mat-autocomplete #autoProjects="matAutocomplete" [displayWith]="displayValue">
-                <mat-option *ngFor="let project of projects" [value]="project">
-                  {{ project.name }}
+              <mat-label>EY Project Name</mat-label>
+              <mat-select formControlName="project" required>
+                <mat-option *ngFor="let project of projects" [value]="project">{{ project.name }}
                 </mat-option>
-              </mat-autocomplete>
+              </mat-select>
               <mat-error *ngIf="!addOpportunityForm.controls.project.valid">Required Field</mat-error>
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput type="text" placeholder="Hiring Manager" formControlName="hiringManager" />
+              <input matInput type="text" placeholder="Hiring Manager: 'Last name, First name'"
+                formControlName="hiringManager" />
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput type="text" placeholder="Owner" formControlName="owner" required />
+              <input matInput type="text" placeholder="Owner: 'Last name, First name'" formControlName="owner"
+                required />
               <mat-error *ngIf="!addOpportunityForm.controls.owner.valid">Required Field</mat-error>
             </mat-form-field>
 
             <mat-form-field>
-              <input type="text" placeholder="Certainty" aria-label="Certainty" matInput formControlName="certainty"
-                [matAutocomplete]="autoCertainty" required />
-              <mat-autocomplete #autoCertainty="matAutocomplete" [displayWith]="displayValue">
-                <mat-option *ngFor="let certainty of certainties" [value]="certainty">
-                  {{ certainty.description }}
+              <mat-label>Certainty</mat-label>
+              <mat-select formControlName="certainty" required>
+                <mat-option *ngFor="let certainty of certainties" [value]="certainty">{{ certainty.description }}
                 </mat-option>
-              </mat-autocomplete>
+              </mat-select>
               <mat-error *ngIf="!addOpportunityForm.controls.certainty.valid">Required Field</mat-error>
             </mat-form-field>
           </div>
@@ -56,7 +54,7 @@
             <mat-form-field>
               <mat-label>Primary Location</mat-label>
               <mat-select formControlName="primaryLocation" required>
-                <mat-option *ngFor="let location of locations" [value]="location.id">{{ location.description }}
+                <mat-option *ngFor="let location of locations" [value]="location">{{ location.description }}
                 </mat-option>
               </mat-select>
               <mat-error *ngIf="!addOpportunityForm.controls.primaryLocation.valid">Required Field</mat-error>
@@ -67,13 +65,11 @@
             </mat-form-field>
 
             <mat-form-field>
-              <input type="text" placeholder="SOW #" aria-label="SOW #" matInput formControlName="sow"
-                [matAutocomplete]="autoSow" />
-              <mat-autocomplete #autoSow="matAutocomplete" [displayWith]="displayValue">
-                <mat-option *ngFor="let sow of sows" [value]="sow">
-                  {{ sow.name }}
+              <mat-label>SOW #</mat-label>
+              <mat-select formControlName="sow">
+                <mat-option *ngFor="let sow of sows" [value]="sow">{{ sow.name }}
                 </mat-option>
-              </mat-autocomplete>
+              </mat-select>
             </mat-form-field>
 
 
@@ -82,18 +78,17 @@
             </mat-form-field>
 
             <mat-form-field>
-              <input type="text" placeholder="Service Line" aria-label="Service Line" matInput
-                formControlName="serviceLine" [matAutocomplete]="autoServiceLine" required />
-              <mat-autocomplete #autoServiceLine="matAutocomplete" [displayWith]="displayValue">
-                <mat-option *ngFor="let serviceline of serviceLines" [value]="serviceline">
-                  {{ serviceline.description }}
+              <mat-label>Service Line</mat-label>
+              <mat-select formControlName="serviceLine" required>
+                <mat-option *ngFor="let serviceline of serviceLines" [value]="serviceline">{{ serviceline.description }}
                 </mat-option>
-              </mat-autocomplete>
+              </mat-select>
               <mat-error *ngIf="!addOpportunityForm.controls.serviceLine.valid">Required Field</mat-error>
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput type="text" placeholder="Requested By" formControlName="requestedByName" required />
+              <input matInput type="text" placeholder="Requested By: 'Last name, First name'"
+                formControlName="requestedByName" required />
               <mat-error *ngIf="!addOpportunityForm.controls.requestedByName.valid">Required Field</mat-error>
             </mat-form-field>
 
@@ -150,7 +145,11 @@
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput type="text" placeholder="Progress (Status)" formControlName="status" />
+              <mat-label>Progress (Status)</mat-label>
+              <mat-select formControlName="status">
+                <mat-option *ngFor="let status of statuses" [value]="status">{{ status.description }}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </div>
         </section>
@@ -165,6 +164,10 @@
           </button>
         </section>
       </form>
+    </section>
+
+    <section class="position-slots">
+      <app-position-slots></app-position-slots>
     </section>
   </div>
 </div>

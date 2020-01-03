@@ -16,6 +16,11 @@ export class SeniorityService {
         return this.http.get<Seniority[]>(environment.seniorityUrl);
     }
 
+    getSeniorityById(serniorityId: number): Observable<Seniority> {
+        return this.http.get<Seniority>(`${environment.seniorityUrl}/${serniorityId}`);
+    }
+
+
     createSeniority(seniority: Seniority): Observable<Seniority> {
         return this.http.post<Seniority>(environment.seniorityUrl, seniority);
     }

@@ -4,6 +4,7 @@ import { EditSowComponent } from './_components/edit-sow/edit-sow.component';
 import { CreateSowComponent } from './_components/create-sow/create-sow.component';
 import { SowService } from './sow.service';
 import { Sow } from './sow';
+import { CONSTANTS } from '../../shared/constants/common.constants';
 
 @Component({
   selector: 'app-sow',
@@ -22,6 +23,7 @@ export class SowComponent implements OnInit {
   ];
   sows: Sow[] = [];
   loading: boolean = false;
+  constants = CONSTANTS;
 
   constructor(
     private dialog: MatDialog,

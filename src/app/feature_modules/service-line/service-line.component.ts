@@ -4,6 +4,7 @@ import { EditServiceLineComponent } from './_components/edit-service-line/edit-s
 import { CreateServiceLineComponent } from './_components/create-service-line/create-service-line.component';
 import { ServiceLineService } from './service-line.service';
 import { ServiceLine } from './service-line';
+import { CONSTANTS } from '../../shared/constants/common.constants';
 
 @Component({
   selector: "app-service-line",
@@ -22,6 +23,7 @@ export class ServiceLineComponent implements OnInit {
   ];
   serviceLines: ServiceLine[] = [];
   loading: boolean = false;
+  constants = CONSTANTS;
 
   constructor(
     private dialog: MatDialog,

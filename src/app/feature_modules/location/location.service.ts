@@ -16,6 +16,10 @@ export class LocationService {
         return this.http.get<Location[]>(environment.locationUrl);
     }
 
+    getLocationById(locationId: number): Observable<Location> {
+        return this.http.get<Location>(`${environment.locationUrl}/${locationId}`);
+    }
+
     createLocation(location: Location): Observable<Location> {
         return this.http.post<Location>(environment.locationUrl, location);
     }

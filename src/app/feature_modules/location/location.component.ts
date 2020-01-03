@@ -4,6 +4,7 @@ import { EditLocationComponent } from './_components/edit-location/edit-location
 import { CreateLocationComponent } from './_components/create-location/create-location.component';
 import { LocationService } from './location.service';
 import { Location } from './location';
+import { CONSTANTS } from '../../shared/constants/common.constants';
 
 @Component({
   selector: "app-location",
@@ -22,6 +23,7 @@ export class LocationComponent implements OnInit {
   ];
   locations: Location[] = [];
   loading: boolean = false;
+  constants = CONSTANTS;
 
   constructor(
     private dialog: MatDialog,

@@ -10,6 +10,7 @@ import { EditOpportunityManagementComponent } from './_components/edit-opportuni
 import { MaterialModule } from '../../core/_modules/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OpportunityRoutingModule } from './opportunity-routing.module';
+import { PositionSlotsModule } from '../position-slots/position-slots.module';
 // Services
 import { OpportunityService } from './opportunity.service';
 // Guards
@@ -28,7 +29,8 @@ import { PreventUnsavedEditOpportunity } from './_guards/prevent-unsaved-edit-op
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
-    OpportunityRoutingModule
+    OpportunityRoutingModule,
+    PositionSlotsModule
   ],
   exports: [
     OpportunityComponent,

@@ -79,7 +79,14 @@ const routes: Routes = [
     loadChildren: () => import('./feature_modules/project/project.module').then(
       module => module.ProjectModule
     )
-  }
+  },
+  {
+    path: 'security',
+    loadChildren: () => import('./core/_modules/security/security.module').then(
+      module => module.SecurityModule
+    ),
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

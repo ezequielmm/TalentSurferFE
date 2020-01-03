@@ -13,13 +13,19 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (this.authService.isSignedIn()) {
       const authToken = this.authService.getAuthToken();
-      req = req.clone({
-        setHeaders: {
-          Authorization: `Bearer ${authToken}`,
-          'content-type': 'application/json'
-        }
-      });
+      if (!req.url.includes('refreshfor')) {
+        req = this.addToken(req, authToken);
+      }
     }
     return next.handle(req);
+  }
+
+  private addToken(request: HttpRequest<any>, token: string) {
+    return request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`,
+        'content-type': 'application/json'
+      }
+    });
   }
 }

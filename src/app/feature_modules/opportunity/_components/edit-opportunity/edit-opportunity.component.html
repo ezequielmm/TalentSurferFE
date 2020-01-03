@@ -22,31 +22,28 @@
             </mat-form-field>
 
             <mat-form-field>
-              <input type="text" placeholder="EY Project Name" aria-label="EY Project Name" matInput
-                formControlName="project" [matAutocomplete]="autoProjects" required>
-              <mat-autocomplete #autoProjects="matAutocomplete" [displayWith]="displayValue">
+              <mat-label>EY Project Name</mat-label>
+              <mat-select formControlName="project" [compareWith]="compareFn" required>
                 <mat-option *ngFor="let project of projects" [value]="project">
-                  {{project.name}}
-                </mat-option>
-              </mat-autocomplete>
+                  {{project.name}}</mat-option>
+              </mat-select>
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput type="text" placeholder="Hiring Manager" formControlName="hiringManager">
+              <input matInput type="text" placeholder="Hiring Manager: 'Last name, First name'"
+                formControlName="hiringManager">
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput type="text" placeholder="Owner" formControlName="owner" required>
+              <input matInput type="text" placeholder="Owner: 'Last name, First name'" formControlName="owner" required>
             </mat-form-field>
 
             <mat-form-field>
-              <input type="text" placeholder="Certainty" aria-label="Certainty" matInput formControlName="certainty"
-                [matAutocomplete]="autoCertainty" required>
-              <mat-autocomplete #autoCertainty="matAutocomplete" [displayWith]="displayValue">
+              <mat-label>Certainty</mat-label>
+              <mat-select formControlName="certainty" [compareWith]="compareFn" required>
                 <mat-option *ngFor="let certainty of certainties" [value]="certainty">
-                  {{certainty.description}}
-                </mat-option>
-              </mat-autocomplete>
+                  {{certainty.description}}</mat-option>
+              </mat-select>
             </mat-form-field>
           </div>
 
@@ -64,13 +61,11 @@
             </mat-form-field>
 
             <mat-form-field>
-              <input type="text" placeholder="SOW #" aria-label="SOW #" matInput formControlName="sow"
-                [matAutocomplete]="autoSow">
-              <mat-autocomplete #autoSow="matAutocomplete" [displayWith]="displayValue">
+              <mat-label>SOW #</mat-label>
+              <mat-select formControlName="sow" [compareWith]="compareFn">
                 <mat-option *ngFor="let sow of sows" [value]="sow">
-                  {{sow.name}}
-                </mat-option>
-              </mat-autocomplete>
+                  {{sow.name}}</mat-option>
+              </mat-select>
             </mat-form-field>
 
             <mat-form-field>
@@ -78,17 +73,16 @@
             </mat-form-field>
 
             <mat-form-field>
-              <input type="text" placeholder="Service Line" aria-label="Service Line" matInput
-                formControlName="serviceLine" [matAutocomplete]="autoServiceLine" required>
-              <mat-autocomplete #autoServiceLine="matAutocomplete" [displayWith]="displayValue">
+              <mat-label>Service Line</mat-label>
+              <mat-select formControlName="serviceLine" [compareWith]="compareFn" required>
                 <mat-option *ngFor="let serviceline of serviceLines" [value]="serviceline">
-                  {{serviceline.description}}
-                </mat-option>
-              </mat-autocomplete>
+                  {{serviceline.description}}</mat-option>
+              </mat-select>
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput type="text" placeholder="Requested By" formControlName="requestedByName" required>
+              <input matInput type="text" placeholder="Requested By: 'Last name, First name'"
+                formControlName="requestedByName" required>
             </mat-form-field>
 
             <mat-form-field>
@@ -139,7 +133,11 @@
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput type="text" placeholder="Progress (Status)" formControlName="status">
+              <mat-label>Progress (Status)</mat-label>
+              <mat-select formControlName="status" [compareWith]="compareFn">
+                <mat-option *ngFor="let status of statuses" [value]="status">
+                  {{status.description}}</mat-option>
+              </mat-select>
             </mat-form-field>
           </div>
         </section>
@@ -152,5 +150,8 @@
       </form>
     </section>
 
+    <section class="position-slots">
+      <app-position-slots></app-position-slots>
+    </section>
   </div>
 </div>

@@ -1,0 +1,32 @@
+.app-create-position-slots {
+    .flag-checkbox {
+        padding-top: 1rem;
+        padding-bottom: 1rem
+    }
+    .split-column {
+        display: flex;
+        justify-content: space-around;
+        & > .mat-form-field {
+            width: 40%;
+        }
+    }
+
+    .modal-title {
+        padding: 1px;
+    }
+
+    .modal-content {
+        width: 700px;
+        margin: 20px;
+    }
+
+    .modal-container {
+        padding: 0;
+    }
+    
+    .btn-group-modal {
+        justify-content: space-around;
+        margin-top: 0;
+        padding: 10px;
+    }
+}

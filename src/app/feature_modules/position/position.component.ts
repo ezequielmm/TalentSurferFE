@@ -4,6 +4,7 @@ import { EditPositionComponent } from './_components/edit-position/edit-position
 import { CreatePositionComponent } from './_components/create-position/create-position.component';
 import { PositionService } from './position.service';
 import { Position } from './position';
+import { CONSTANTS } from '../../shared/constants/common.constants';
 
 @Component({
   selector: 'app-position',
@@ -22,6 +23,7 @@ export class PositionComponent implements OnInit {
   ];
   positions: Position[] = [];
   loading: boolean = false;
+  constants = CONSTANTS;
 
   constructor(
     private dialog: MatDialog,

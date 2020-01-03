@@ -3,6 +3,7 @@ export const environment = {
   production: true,
   baseUrl,
   loginUrl: `${baseUrl}api/user/loginGoogle`,
+  refreshTokenUrl: `${baseUrl}api/user/tokens`,
   certaintyUrl: `${baseUrl}api/certainty`,
   locationUrl: `${baseUrl}api/location`,
   statusUrl: `${baseUrl}api/status`,
@@ -12,5 +13,7 @@ export const environment = {
   sowUrl: `${baseUrl}api/sow`,
   opportunityUrl: `${baseUrl}api/opportunity`,
   positionUrl: `${baseUrl}api/position`,
-  projectUrl: `${baseUrl}api/project`
+  projectUrl: `${baseUrl}api/project`,
+  roleUrl: `${baseUrl}api/role`,
+  userUrl: `${baseUrl}api/user`
 };

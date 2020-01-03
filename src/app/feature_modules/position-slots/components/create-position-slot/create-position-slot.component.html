@@ -1,0 +1,115 @@
+<div class="app-create-position-slots modal">
+    <div class="modal-title">
+        <h3 class="primary">Add Position Slot</h3>
+    </div>
+
+    <div class="modal-container">
+        <form [formGroup]="createPositionSlotForm" (ngSubmit)="createPositionSlot()">
+            <section class="modal-content">
+                <div class="split-column">
+                    <mat-form-field>
+                        <mat-label>Position</mat-label>
+                        <mat-select formControlName="position" required>
+                            <mat-option *ngFor="let position of positions" [value]="position">{{ position.description }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="!createPositionSlotForm.controls.position.valid">Required Field</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Seniority</mat-label>
+                        <mat-select formControlName="seniority" required>
+                            <mat-option *ngFor="let seniority of seniorities" [value]="seniority">
+                                {{ seniority.description }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="!createPositionSlotForm.controls.seniority.valid">Required Field</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="split-column">
+                    <mat-form-field>
+                        <mat-label>Primary Location</mat-label>
+                        <mat-select formControlName="primaryLocation" required>
+                            <mat-option *ngFor="let location of locations" [value]="location">{{ location.description }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="!createPositionSlotForm.controls.primaryLocation.valid">Required Field
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Additional Location</mat-label>
+                        <mat-select formControlName="additionalLocations" multiple>
+                            <mat-option *ngFor="let location of locations" [value]="location">{{ location.description }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="split-column">
+                    <mat-form-field>
+                        <input matInput name="glober" type="text" formControlName="glober"
+                            placeholder="Glober: 'Last name, First name'" />
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput name="globerEmail" type="email" formControlName="globerEmail"
+                            placeholder="Email" />
+                    </mat-form-field>
+                </div>
+
+                <div class="split-column">
+                    <mat-form-field>
+                        <input matInput name="nonGlober" type="text" formControlName="nonGlober"
+                            placeholder="Non Glober: 'Last name, First name'" />
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput name="nonGloberEmail" type="email" formControlName="nonGloberEmail"
+                            placeholder="Email" />
+                    </mat-form-field>
+                </div>
+
+                <div class="split-column">
+                    <mat-form-field>
+                        <mat-label>Candidate Seniority</mat-label>
+                        <mat-select formControlName="candidateSeniority">
+                            <mat-option *ngFor="let seniority of seniorities" [value]="seniority">
+                                {{ seniority.description }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Candidate Location</mat-label>
+                        <mat-select formControlName="candidateLocation">
+                            <mat-option *ngFor="let location of locations" [value]="location">{{ location.description }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="split-column">
+                    <mat-form-field>
+                        <input matInput name="ticket" type="text" formControlName="tickets" placeholder="Ticket" />
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Status</mat-label>
+                        <mat-select formControlName="status">
+                            <mat-option *ngFor="let status of statuses" [value]="status">{{ status.description }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </section>
+
+            <section class="btn-group-modal">
+                <button mat-button type="button" class="cancel-btn" (click)="closeDialog()">Cancel</button>
+                <button mat-raised-button type="submit" color="primary" [disabled]="!createPositionSlotForm.valid"
+                    class="action-btn">Add</button>
+            </section>
+        </form>
+    </div>
+</div>

@@ -4,6 +4,7 @@ import { EditProjectComponent } from './_components/edit-project/edit-project.co
 import { CreateProjectComponent } from './_components/create-project/create-project.component';
 import { ProjectService } from './project.service';
 import { Project } from './project';
+import { CONSTANTS } from '../../shared/constants/common.constants';
 
 @Component({
   selector: 'app-project',
@@ -22,6 +23,7 @@ export class ProjectComponent implements OnInit {
   ];
   projects: Project[] = [];
   loading: boolean = false;
+  constants = CONSTANTS;
 
   constructor(
     private dialog: MatDialog,

@@ -7,6 +7,7 @@ import { Sow } from '../../../sow/sow';
 import { ServiceLine } from '../../../service-line/service-line';
 import { Opportunity } from '../../opportunity';
 import { Location } from '../../../location/location';
+import { Status } from '../../../status/status';
 import { OpportunityService } from '../../opportunity.service';
 import { CertaintyService } from '../../../certainty/certainty.service';
 import { SowService } from '../../../sow/sow.service';
@@ -15,6 +16,7 @@ import { MatDatepickerInputEvent } from '@angular/material';
 import { LocationService } from '../../../location/location.service';
 import { Project } from '../../../project/project';
 import { ProjectService } from '../../../project/project.service';
+import { StatusService } from '../../../status/status.service';
 import { reject } from 'q';
 
 @Component({
@@ -36,6 +38,7 @@ export class EditOpportunityManagementComponent implements OnInit {
   projects: Project[];
   certainties: Certainty[];
   sows: Sow[];
+  statuses: Status[];
   serviceLines: ServiceLine[];
   locations: Location[];
   cancelSubmit: boolean = false;
@@ -52,6 +55,7 @@ export class EditOpportunityManagementComponent implements OnInit {
     private sowService: SowService,
     private serviceLineService: ServiceLineService,
     private locationService: LocationService,
+    private statusService: StatusService,
     private projectService: ProjectService,
     private formBuilder: FormBuilder,
     private router: Router,
@@ -96,12 +100,12 @@ export class EditOpportunityManagementComponent implements OnInit {
         (opportunity: any) => {
           this.opportunity = opportunity;
           this.editOpportunityForm.patchValue(opportunity);
-          this.editOpportunityForm.controls.project.setValue(opportunity.projectName);
           this.getCertainties();
           this.getSows();
           this.getServiceLines();
           this.getProjects();
           this.getLocations();
+          this.getStatuses();
         },
         error => console.log(error)
       );
@@ -112,7 +116,7 @@ export class EditOpportunityManagementComponent implements OnInit {
       .getCertainties()
       .subscribe(
         certainties => {
-          this.certainties = certainties;
+          this.certainties = certainties.filter(certainty => !certainty.archivingFlag);
           this.getCertaintiesById(this.opportunity.certaintyId);
         },
         error => console.log(error)
@@ -128,10 +132,10 @@ export class EditOpportunityManagementComponent implements OnInit {
     this.sowService
       .getSows()
       .subscribe(sows => {
-        this.sows = sows;
+        this.sows = sows.filter(sow => !sow.archivingFlag);
         this.getSowById(this.opportunity.sow);
       },
-      error => console.log(error));
+        error => console.log(error));
   }
 
   private getSowById(sowId: number) {
@@ -139,12 +143,27 @@ export class EditOpportunityManagementComponent implements OnInit {
     this.editOpportunityForm.controls.sow.setValue(selectedSow[0]);
   }
 
+  private getStatuses() {
+    this.statusService
+      .getStatuses()
+      .subscribe(statuses => {
+        this.statuses = statuses.filter(status => !status.archivingFlag);
+        this.getStatusById(this.opportunity.statusId);
+      },
+        error => console.log(error));
+  }
+
+  private getStatusById(statusId: number) {
+    const selectedStatus = this.opportunityService.findById(this.statuses, statusId);
+    this.editOpportunityForm.controls.status.setValue(selectedStatus[0]);
+  }
+
   private getServiceLines() {
     this.serviceLineService
       .getServiceLines()
       .subscribe(
         serviceLines => {
-          this.serviceLines = serviceLines;
+          this.serviceLines = serviceLines.filter(serviceLine => !serviceLine.archivingFlag);
           this.getServiceLineById(this.opportunity.serviceLineId);
         },
         error => console.log(error)
@@ -160,15 +179,23 @@ export class EditOpportunityManagementComponent implements OnInit {
     this.projectService
       .getProjects()
       .subscribe(
-        projects => (this.projects = projects),
+        projects => {
+          this.projects = projects.filter(project => !project.archivingFlag);
+          this.getProjectById(this.opportunity.projectId);
+        },
         error => console.log(error)
       );
+  }
+
+  private getProjectById(projectId: number) {
+    const selectedProject = this.opportunityService.findById(this.projects, projectId);
+    this.editOpportunityForm.controls.project.setValue(selectedProject[0]);
   }
 
   private getLocations() {
     this.locationService.getLocations().subscribe(
       locations => {
-        this.locations = locations;
+        this.locations = locations.filter(location => !location.archivingFlag);
         this.getPrimaryLocationById(this.opportunity.primaryLocationId);
         this.getAdditionalLocationsById(this.opportunity.additionalLocationsIds);
       },
@@ -219,11 +246,12 @@ export class EditOpportunityManagementComponent implements OnInit {
   opportunityDuration(event: MatDatepickerInputEvent<Date>) {
     const start = moment(this.editOpportunityForm.value.startDate, 'YYYY-MM-DD');
     const end = moment(this.editOpportunityForm.value.endDate, 'YYYY-MM-DD');
-    const dateCalculation = `${moment.duration(end.diff(start)).asMonths().toFixed().toString()} Month`;
+    let dateCalculation = `${moment.duration(end.diff(start)).asMonths().toFixed().toString()}`;
+    dateCalculation = (parseInt(dateCalculation, 10) > 1) ? `${dateCalculation} Months` : `${dateCalculation} Month`;
     this.editOpportunityForm.controls.duration.setValue(dateCalculation);
   }
 
-  compareFn(location1: Location, location2: Location) {
-    return location1 && location2 && location1.id === location2.id ? true : false;
+  compareFn(object1: Location, object2: Location): boolean {
+    return object1 && object2 && object1.id === object2.id ? true : false;
   }
 }
