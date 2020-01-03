@@ -7,9 +7,37 @@ import { PreventUnsavedAddOpportunity } from './_guards/prevent-unsaved-add-oppo
 import { PreventUnsavedEditOpportunity } from './_guards/prevent-unsaved-edit-opportunity.guard';
 
 const routes: Routes = [
-  { path: '', component: OpportunityComponent },
-  { path: 'add', component: AddOpportunityManagementComponent, canDeactivate: [PreventUnsavedAddOpportunity] },
-  { path: 'edit/:id', component: EditOpportunityManagementComponent, canDeactivate:[PreventUnsavedEditOpportunity] }
+  {
+    path: '',
+    data: {
+      breadcrumb: 'Opportunity Management'
+    },
+    children: [
+      {
+        path: '',
+        component: OpportunityComponent,
+        data: {
+          breadcrumb: null,
+        },
+      },
+      {
+        path: 'add',
+        component: AddOpportunityManagementComponent,
+        canDeactivate: [PreventUnsavedAddOpportunity],
+        data: {
+          breadcrumb: 'Add'
+        }
+      },
+      {
+        path: 'edit/:id',
+        component: EditOpportunityManagementComponent,
+        canDeactivate: [PreventUnsavedEditOpportunity],
+        data: {
+          breadcrumb: 'Edit'
+        }
+      }
+    ]
+  }
 ];
 
 @NgModule({

@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CertaintyComponent } from './certainty.component';
 
 const routes: Routes = [
-  { path: '', component: CertaintyComponent },
+  { path: '', component: CertaintyComponent, data: { breadcrumb: 'Certainty' } },
 ];
 
 @NgModule({

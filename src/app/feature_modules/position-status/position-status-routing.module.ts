@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PositionStatusComponent } from './position-status.component';
 
 const routes: Routes = [
-  { path: '', component: PositionStatusComponent },
+  { path: '', component: PositionStatusComponent, data: { breadcrumb: 'Position Status' } },
 ];
 
 @NgModule({
