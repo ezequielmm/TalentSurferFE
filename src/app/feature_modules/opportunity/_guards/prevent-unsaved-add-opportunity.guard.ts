@@ -5,11 +5,10 @@ import { AddOpportunityManagementComponent } from '../_components/add-opportunit
 @Injectable()
 export class PreventUnsavedAddOpportunity
   implements CanDeactivate<AddOpportunityManagementComponent> {
+
   canDeactivate(component: AddOpportunityManagementComponent) {
     if (component.addOpportunityForm.dirty && !component.submitForm) {
-      return confirm(
-        'All unsaved data will be cleared. Is this what you want to do?'
-      );
+      return confirm('You have unsaved changes that will be lost if you decide to continue. Are you sure want to continue?');
     }
     return true;
   }

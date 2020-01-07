@@ -4,10 +4,10 @@ import { EditOpportunityManagementComponent  } from '../_components/edit-opportu
 
 @Injectable()
 export class PreventUnsavedEditOpportunity implements CanDeactivate<EditOpportunityManagementComponent> {
-    canDeactivate(component: EditOpportunityManagementComponent){
-        if(component.editOpportunityForm.dirty && !component.submitForm){
-            return confirm("All unsaved data will be cleared. Is this what you want to do?")
+    canDeactivate(component: EditOpportunityManagementComponent) {
+        if (component.editOpportunityForm.dirty && !component.submitForm) {
+            return confirm('You have unsaved changes that will be lost if you decide to continue. Are you sure want to continue?');
         }
         return true;
     }
-} 
+}
