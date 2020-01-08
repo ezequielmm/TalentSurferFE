@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ServiceLineComponent } from './service-line.component';
 
 const routes: Routes = [
-  { path: '', component: ServiceLineComponent },
+  { path: '', component: ServiceLineComponent, data: { breadcrumb: 'Service Line' } },
 ];
 
 @NgModule({

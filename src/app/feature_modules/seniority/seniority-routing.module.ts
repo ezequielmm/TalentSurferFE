@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SeniorityComponent } from './seniority.component';
 
 const routes: Routes = [
-  { path: '', component: SeniorityComponent },
+  { path: '', component: SeniorityComponent,  data: { breadcrumb: 'Seniority' } },
 ];
 
 @NgModule({
