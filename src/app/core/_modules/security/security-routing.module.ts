@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SecurityComponent } from './security.component';
 
 const routes: Routes = [
-  { path: '', component: SecurityComponent },
+  { path: '', component: SecurityComponent, data: { breadcrumb: 'Security' } },
 ];
 
 @NgModule({
