@@ -1,5 +1,12 @@
-FROM nginx:stable
+FROM node:alpine AS builder
 
-COPY ./dist/ /var/www
+WORKDIR /app
 
-COPY ./config/nginx.conf /etc/nginx/conf.d/default.conf
+COPY . .
+
+RUN npm install && \
+    npm run build
+
+FROM nginx:alpine
+
+COPY --from=builder /app/dist/* /usr/share/nginx/html/
