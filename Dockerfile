@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install npm dependencies
-RUN npm set progress=false && npm i --silent && npm install && npm audit fix
+RUN npm set progress=false && npm i --silent && npm install
 
 # Copy app files to out container
 COPY . .
@@ -21,7 +21,10 @@ RUN npm run build
 
 FROM nginx:1.12-alpine
 
-COPY ./config/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./config/nginx.conf /etc/nginx/conf.d/nginx.conf
+
+#COPY corp.globant.com.crt /etc/nginx/corp.globant.com.crt
+#COPY corp.globant.com.key /etc/nginx/corp.globant.com.key
 
 # Copy build files from first image to nginx dir
 RUN rm -rf /usr/share/nginx/html/*
